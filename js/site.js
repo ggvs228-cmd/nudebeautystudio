@@ -3,24 +3,6 @@
   const LANGS = ['es', 'ca', 'en'];
 
   /* ------------------------------------------------------------------
-     Photos. Currently linked from the studio's Google Business Profile.
-     To use your own, put files in /images and replace the URL, e.g.
-     { src: 'images/unas-01.jpg', alt: {...} }
-  ------------------------------------------------------------------ */
-  const G = 'https://lh3.googleusercontent.com/gps-cs-s/';
-  const PHOTOS = {
-    shelves: { src: G + 'AHRPTWn8cm33n_s-PxwNKfxP_WND2q4hjixorDWVhGX_rLmwpSTBXdOajzurjIwuEDUSbmgQ7a7_AD_MDulfx0ynMpkMfiAdwldgisZWiZLRYCpv9MpW1a45Tt7Uc2yEkQufDdrU-RtmolbA9Mw=w900',
-      alt: { es: 'Estantes de madera clara con plantas colgantes en el estudio', ca: 'Prestatges de fusta clara amb plantes penjants a l\'estudi', en: 'Light wood shelves with trailing plants in the studio' } },
-    vanity: { src: G + 'AHRPTWnxKZrREMwkh0cPWisZwps9XdGSCyQ2SqicJWPLg7Nmxx993ykX3TE9U-9hweT3WSakWTgLEBjew5qV3zOvotPm36UmTslwOrjcXGhELlDNkV7exUiPbergwc3D66loM873sI2IM_3K2I0=w900',
-      alt: { es: 'Tocador con espejo iluminado y vistas a una fachada modernista', ca: 'Tocador amb mirall il·luminat i vistes a una façana modernista', en: 'Vanity with lit mirror and a view of a modernista façade' } },
-    nails: { src: G + 'AHRPTWnGJTdqF3lt1qUYr8ihKSXWfeYdQcKZ9XQiWercvYNTmZ3EN-HtXli8CBIOzHzJSQapGV_KClGYB7la7-hubiL5_caNQRW5RochwkK-Lx57ouRlDYg_lsmvgGeO6c8uVUfUw365zrj6__rC=w900',
-      alt: { es: 'Mesa de manicura junto a la ventana', ca: 'Taula de manicura al costat de la finestra', en: 'Manicure desk by the window' } },
-    hand: { src: G + 'AHRPTWkNs5ooRxNwc1VCpuYlMH5GUq-Wnmu1zhKkwXy01Sn9XdhD_WgZjJHXdZFV0Gz-IVPPFA1tHoth3zFJZKnnh6TeQwNrWOPBgIHATcAaoGxRbEdsR_AKERGDMTkgjKZ1xFae7BdWHr2NAVMf=w900',
-      alt: { es: 'Manicura recién hecha frente al mostrador de Nude', ca: 'Manicura acabada de fer davant del taulell de Nude', en: 'Fresh manicure in front of the Nude reception desk' } },
-  };
-  const GALLERY = ['vanity', 'nails', 'shelves', 'hand'];
-
-  /* ------------------------------------------------------------------
      Service menu. p = price in €, from = "desde", ask = price on request.
   ------------------------------------------------------------------ */
   const HIDRALIPS = { id: 'hidralips', p: 30,
@@ -28,6 +10,13 @@
     d: { es: 'Hidratación de labios con ácido hialurónico.', ca: 'Hidratació de llavis amb àcid hialurònic.', en: 'Lip hydration with hyaluronic acid.' } };
 
   const MENU = [
+    { id: 'manos',
+      n: { es: 'Manos y pies', ca: 'Mans i peus', en: 'Hands & feet' },
+      items: [
+        { id: 'mani', p: 25, from: true, n: { es: 'Manicura', ca: 'Manicura', en: 'Manicure' } },
+        { id: 'mani-pedi', p: 50, from: true, n: { es: 'Manicura y pedicura', ca: 'Manicura i pedicura', en: 'Manicure & pedicure' } },
+        { id: 'pedi-semi', p: 40, n: { es: 'Pedicura completa con semipermanente', ca: 'Pedicura completa amb semipermanent', en: 'Full pedicure with gel polish' } },
+      ] },
     { id: 'mirada',
       n: { es: 'Pestañas, cejas y labios', ca: 'Pestanyes, celles i llavis', en: 'Lashes, brows & lips' },
       items: [
@@ -42,8 +31,6 @@
         { id: 'laminado', p: 45,
           n: { es: 'Laminado de cejas', ca: 'Laminat de celles', en: 'Brow lamination' },
           d: { es: 'Ordena y fija el vello en la dirección que quieras.', ca: 'Ordena i fixa el pèl en la direcció que vulguis.', en: 'Sets brow hairs in the direction you want.' } },
-        { id: 'micro', p: 350,
-          n: { es: 'Micropigmentación de cejas, técnica híbrida', ca: 'Micropigmentació de celles, tècnica híbrida', en: 'Brow micropigmentation, hybrid technique' } },
         HIDRALIPS,
       ] },
     { id: 'faciales',
@@ -107,13 +94,6 @@
         { id: 'novia', p: 90, n: { es: 'Maquillaje de novia', ca: 'Maquillatge de núvia', en: 'Bridal make-up' } },
         { id: 'social', p: 60, n: { es: 'Maquillaje social', ca: 'Maquillatge social', en: 'Occasion make-up' } },
       ] },
-    { id: 'manos',
-      n: { es: 'Manos y pies', ca: 'Mans i peus', en: 'Hands & feet' },
-      items: [
-        { id: 'mani', p: 25, from: true, n: { es: 'Manicura', ca: 'Manicura', en: 'Manicure' } },
-        { id: 'mani-pedi', p: 50, from: true, n: { es: 'Manicura y pedicura', ca: 'Manicura i pedicura', en: 'Manicure & pedicure' } },
-        { id: 'pedi-semi', p: 40, n: { es: 'Pedicura completa con semipermanente', ca: 'Pedicura completa amb semipermanent', en: 'Full pedicure with gel polish' } },
-      ] },
   ];
 
   /* ------------------------------------------------------------------ */
@@ -122,17 +102,15 @@
       'nav.services': 'Servicios', 'nav.studio': 'El estudio', 'nav.reviews': 'Reseñas', 'nav.visit': 'Cómo llegar',
       'hero.kicker': 'Eixample · Barcelona',
       'hero.title': 'Belleza sin escaparate.',
-      'hero.sub': 'Estudio de estética en un quinto piso de Diputació 238. Uñas, cejas, pestañas, faciales y tratamientos corporales, solo con cita.',
+      'hero.sub': 'Estudio de estética en un quinto piso de Diputació 238. Uñas, cejas, pestañas, faciales y tratamientos corporales.',
       'hero.rating': '5,0 en Google · 106 reseñas',
-      'cta.book': 'Reservar por WhatsApp', 'cta.menu': 'Ver servicios y precios',
+      'cta.book': 'Reservar por WhatsApp', 'cta.menu': 'Ver servicios y precios', 'cta.appt': 'Solo con cita previa',
       'story.kicker': 'Al llegar',
       'story.title': 'Llamas al timbre y subes.',
       'story.p1': 'No busques un rótulo en la calle: es la puerta 6 de la quinta planta. Llamas, subes y entras a tu hora.',
       'story.p2': 'Dentro, paredes blancas, madera clara y plantas. El tocador de maquillaje está junto a un ventanal que da a una fachada modernista.',
       'menu.kicker': 'Servicios', 'menu.title': 'La carta, con precios.',
       'menu.hint': 'Marca lo que te interese y envíanos la selección por WhatsApp. Te respondemos con día y hora.',
-      'gal.kicker': 'Galería', 'gal.title': 'El estudio, en fotos.',
-      'gal.note': 'Fotos del perfil de Google del estudio.',
       'rev.kicker': 'Reseñas', 'rev.title': 'Lo que cuentan quienes ya han subido.',
       'rev.source': '106 reseñas en Google Maps, todas de cinco estrellas · octubre de 2026',
       'rev.sub': 'Lo que más se repite',
@@ -158,17 +136,15 @@
       'nav.services': 'Serveis', 'nav.studio': 'L\'estudi', 'nav.reviews': 'Ressenyes', 'nav.visit': 'Com arribar',
       'hero.kicker': 'Eixample · Barcelona',
       'hero.title': 'Bellesa sense aparador.',
-      'hero.sub': 'Estudi d\'estètica en un cinquè pis de Diputació 238. Ungles, celles, pestanyes, facials i tractaments corporals, només amb cita.',
+      'hero.sub': 'Estudi d\'estètica en un cinquè pis de Diputació 238. Ungles, celles, pestanyes, facials i tractaments corporals.',
       'hero.rating': '5,0 a Google · 106 ressenyes',
-      'cta.book': 'Reservar per WhatsApp', 'cta.menu': 'Veure serveis i preus',
+      'cta.book': 'Reservar per WhatsApp', 'cta.menu': 'Veure serveis i preus', 'cta.appt': 'Només amb cita prèvia',
       'story.kicker': 'En arribar',
       'story.title': 'Truques al timbre i puges.',
       'story.p1': 'No busquis cap rètol al carrer: és la porta 6 de la cinquena planta. Truques, puges i entres a la teva hora.',
       'story.p2': 'A dins, parets blanques, fusta clara i plantes. El tocador de maquillatge és al costat d\'un finestral que dona a una façana modernista.',
       'menu.kicker': 'Serveis', 'menu.title': 'La carta, amb preus.',
       'menu.hint': 'Marca el que t\'interessi i envia\'ns la selecció per WhatsApp. Et responem amb dia i hora.',
-      'gal.kicker': 'Galeria', 'gal.title': 'L\'estudi, en fotos.',
-      'gal.note': 'Fotos del perfil de Google de l\'estudi.',
       'rev.kicker': 'Ressenyes', 'rev.title': 'El que expliquen les que ja han pujat.',
       'rev.source': '106 ressenyes a Google Maps, totes de cinc estrelles · octubre de 2026',
       'rev.sub': 'El que més es repeteix',
@@ -194,17 +170,15 @@
       'nav.services': 'Services', 'nav.studio': 'The studio', 'nav.reviews': 'Reviews', 'nav.visit': 'Find us',
       'hero.kicker': 'Eixample · Barcelona',
       'hero.title': 'Beauty without a shop window.',
-      'hero.sub': 'A beauty studio on the fifth floor of Diputació 238. Nails, brows, lashes, facials and body treatments, by appointment only.',
+      'hero.sub': 'A beauty studio on the fifth floor of Diputació 238. Nails, brows, lashes, facials and body treatments.',
       'hero.rating': '5.0 on Google · 106 reviews',
-      'cta.book': 'Book on WhatsApp', 'cta.menu': 'See services & prices',
+      'cta.book': 'Book on WhatsApp', 'cta.menu': 'See services & prices', 'cta.appt': 'By appointment only',
       'story.kicker': 'When you arrive',
       'story.title': 'Ring the bell and come up.',
       'story.p1': 'Don\'t look for a sign on the street: it\'s door 6 on the fifth floor. Ring, come up and walk in at your time.',
       'story.p2': 'Inside: white walls, light wood and plants. The make-up vanity sits by a full-height window facing a modernista façade.',
       'menu.kicker': 'Services', 'menu.title': 'The menu, with prices.',
       'menu.hint': 'Tick what you\'re interested in and send us the selection on WhatsApp. We\'ll reply with a day and time.',
-      'gal.kicker': 'Gallery', 'gal.title': 'The studio, in photos.',
-      'gal.note': 'Photos from the studio\'s Google profile.',
       'rev.kicker': 'Reviews', 'rev.title': 'What people say once they\'ve been up.',
       'rev.source': '106 reviews on Google Maps, every one five stars · October 2026',
       'rev.sub': 'What comes up most',
@@ -242,7 +216,6 @@
   const fromUrl = new URLSearchParams(location.search).get('lang');
   const fromNav = (navigator.language || 'es').slice(0, 2).toLowerCase();
   let lang = [fromUrl, store.get('nude-lang'), fromNav].find(l => LANGS.includes(l)) || 'es';
-  let activeCat = MENU[0].id;
   const picked = new Set();
   const allItems = new Map(MENU.flatMap(c => c.items).map(i => [i.id, i]));
 
@@ -280,22 +253,40 @@
     ).join('');
   }
 
+  // Every category is listed in full; the chips are only shortcuts to each one
   function renderMenu() {
     $('#tabs').innerHTML = MENU.map(c =>
-      `<button type="button" role="tab" data-cat="${c.id}" aria-selected="${c.id === activeCat}">${c.n[lang]}<small>${c.items.length}</small></button>`
+      `<a href="#cat-${c.id}" data-cat="${c.id}">${c.n[lang]}<small>${c.items.length}</small></a>`
     ).join('');
-    const cat = MENU.find(c => c.id === activeCat);
-    $('#items').innerHTML = cat.items.map(i => {
-      const on = picked.has(i.id);
-      return `<li class="item">
-        <button type="button" class="item__btn" data-id="${i.id}" aria-pressed="${on}">
-          <span class="item__mark" aria-hidden="true"></span>
-          <span class="item__name">${i.n[lang]}</span>
-          <span class="item__price">${price(i)}</span>
-          ${i.d ? `<span class="item__desc">${i.d[lang]}</span>` : ''}
-        </button>
-      </li>`;
-    }).join('');
+    $('#cats').innerHTML = MENU.map(c => `<div class="cat" id="cat-${c.id}">
+      <h3 class="cat__title">${c.n[lang]}</h3>
+      <ul class="items">${c.items.map(i => {
+        const on = picked.has(i.id);
+        return `<li class="item">
+          <button type="button" class="item__btn" data-id="${i.id}" aria-pressed="${on}">
+            <span class="item__mark" aria-hidden="true"></span>
+            <span class="item__name">${i.n[lang]}</span>
+            <span class="item__price">${price(i)}</span>
+            ${i.d ? `<span class="item__desc">${i.d[lang]}</span>` : ''}
+          </button>
+        </li>`;
+      }).join('')}</ul>
+    </div>`).join('');
+    markChip();
+  }
+
+  // Highlights the chip of the category being read and keeps it visible in the chip row
+  let currentCat = null;
+  function markChip() {
+    const line = Math.max($('#tabs').getBoundingClientRect().bottom + 24, innerHeight * .35);
+    const cats = $$('#cats .cat');
+    const cur = cats.filter(el => el.getBoundingClientRect().top <= line).pop() || cats[0];
+    const id = cur.id.slice(4);
+    $$('#tabs a').forEach(a => a.classList.toggle('is-current', a.dataset.cat === id));
+    if (id === currentCat) return;
+    currentCat = id;
+    const tabs = $('#tabs'), chip = $(`#tabs a[data-cat="${id}"]`);
+    tabs.scrollTo({ left: chip.offsetLeft - (tabs.clientWidth - chip.offsetWidth) / 2, behavior: 'smooth' });
   }
 
   // Page CTAs currently on screen; the dock steps aside for them unless it carries a selection
@@ -321,19 +312,6 @@
     syncDock();
   }
 
-  function renderPhotos() {
-    $$('.js-photo').forEach(img => {
-      const p = PHOTOS[img.dataset.photo];
-      if (!img.src) img.src = p.src;
-      img.alt = p.alt[lang];
-    });
-    $('#gallery').innerHTML = GALLERY.map(k =>
-      `<button type="button" data-photo="${k}"><img src="${PHOTOS[k].src}" alt="${PHOTOS[k].alt[lang]}" loading="lazy" referrerpolicy="no-referrer"></button>`
-    ).join('');
-    // A photo that fails to load leaves its warm-toned tile instead of a broken icon
-    $$('#gallery img, .js-photo').forEach(img => img.addEventListener('error', () => { img.style.visibility = 'hidden'; }));
-  }
-
   function setLang(l) {
     lang = l;
     store.set('nude-lang', l);
@@ -341,7 +319,7 @@
     $$('[data-i18n]').forEach(el => { el.textContent = t(el.dataset.i18n); });
     $$('.lang button').forEach(b => b.setAttribute('aria-pressed', b.dataset.lang === l));
     $('.score__n').textContent = l === 'en' ? '5.0' : '5,0';
-    renderMenu(); renderDock(); renderOpen(); renderPhotos();
+    renderMenu(); renderDock(); renderOpen();
   }
 
   /* ---------- events ---------- */
@@ -349,30 +327,18 @@
     const b = e.target.closest('button[data-lang]');
     if (b) setLang(b.dataset.lang);
   });
-  $('#tabs').addEventListener('click', e => {
-    const b = e.target.closest('button[data-cat]');
-    if (!b) return;
-    activeCat = b.dataset.cat;
-    renderMenu();
-    $(`#tabs [data-cat="${activeCat}"]`).scrollIntoView({ inline: 'center', block: 'nearest', behavior: 'smooth' });
-  });
-  $('#items').addEventListener('click', e => {
+  let chipFrame = 0;
+  addEventListener('scroll', () => {
+    cancelAnimationFrame(chipFrame);
+    chipFrame = requestAnimationFrame(markChip);
+  }, { passive: true });
+  $('#cats').addEventListener('click', e => {
     const b = e.target.closest('.item__btn');
     if (!b) return;
     picked.has(b.dataset.id) ? picked.delete(b.dataset.id) : picked.add(b.dataset.id);
-    renderMenu(); renderDock();
+    $$(`#cats .item__btn[data-id="${b.dataset.id}"]`).forEach(x => x.setAttribute('aria-pressed', picked.has(b.dataset.id)));
+    renderDock();
   });
-  const lightbox = $('#lightbox');
-  $('#gallery').addEventListener('click', e => {
-    const b = e.target.closest('button[data-photo]');
-    if (!b) return;
-    const p = PHOTOS[b.dataset.photo];
-    const img = $('img', lightbox);
-    img.src = p.src.replace(/=w\d+$/, '=w1600');
-    img.alt = p.alt[lang];
-    lightbox.showModal();
-  });
-  lightbox.addEventListener('click', e => { if (e.target.tagName !== 'IMG') lightbox.close(); });
 
   $('#year').textContent = new Date().getFullYear();
   setLang(lang);

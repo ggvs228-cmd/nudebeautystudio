@@ -85,6 +85,7 @@
     </a>
     <h1 data-i18n="hero.title"></h1>
     <p class="hero__sub" data-i18n="hero.sub"></p>
+    <p class="badge" data-i18n="cta.appt"></p>
     <div class="hero__cta">
       <a class="btn btn--wa js-wa" href="https://wa.me/34675161314" target="_blank" rel="noopener">
         <svg class="ic" aria-hidden="true"><use href="#ic-wa"/></svg><span data-i18n="cta.book"></span>
@@ -107,24 +108,14 @@
       <p data-i18n="story.p1"></p>
       <p data-i18n="story.p2"></p>
     </div>
-    <figure class="story__img">
-      <img class="js-photo" data-photo="shelves" alt="" loading="lazy" referrerpolicy="no-referrer">
-    </figure>
   </section>
 
   <section class="menu" id="servicios">
     <p class="eyebrow" data-i18n="menu.kicker"></p>
     <h2 data-i18n="menu.title"></h2>
     <p class="lede" data-i18n="menu.hint"></p>
-    <div class="tabs" role="tablist" id="tabs"></div>
-    <ul class="items" id="items"></ul>
-  </section>
-
-  <section class="gallery" id="galeria">
-    <p class="eyebrow" data-i18n="gal.kicker"></p>
-    <h2 data-i18n="gal.title"></h2>
-    <div class="gallery__strip" id="gallery"></div>
-    <p class="note" data-i18n="gal.note"></p>
+    <nav class="tabs" id="tabs" aria-label="Categorías"></nav>
+    <div class="cats" id="cats"></div>
   </section>
 
   <section class="reviews" id="resenas">
@@ -175,6 +166,7 @@
   <section class="closing">
     <h2 data-i18n="end.title"></h2>
     <p data-i18n="end.sub"></p>
+    <p class="badge" data-i18n="cta.appt"></p>
     <a class="btn btn--wa js-wa" href="https://wa.me/34675161314" target="_blank" rel="noopener">
       <svg class="ic" aria-hidden="true"><use href="#ic-wa"/></svg><span data-i18n="cta.book"></span>
     </a>
@@ -197,11 +189,6 @@
     <svg class="ic" aria-hidden="true"><use href="#ic-wa"/></svg><span id="dock-label"></span>
   </a>
 </div>
-
-<dialog class="lightbox" id="lightbox">
-  <button type="button" class="lightbox__x" aria-label="Cerrar">×</button>
-  <img alt="" referrerpolicy="no-referrer">
-</dialog>
 
 <script src="js/site.js"></script>
 </body>
