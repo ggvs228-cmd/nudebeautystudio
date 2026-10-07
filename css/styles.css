@@ -107,9 +107,45 @@ section > * { max-width: 1080px; margin-left: auto; margin-right: auto; }
 .hero__foot { margin-top: 36px; font-size: .72rem; letter-spacing: .22em; text-transform: uppercase; line-height: 1.7; }
 
 /* ---------- Story ---------- */
-.story { background: var(--paper); }
+.story { background: var(--paper); display: grid; gap: 36px; }
+.story > * { width: 100%; }
 .story__text p + p { margin-top: 14px; }
 .story__text p:not(.eyebrow) { max-width: 52ch; }
+.story__img { margin: 0 auto; aspect-ratio: 4/5; }
+
+/* ---------- Photo slots (photo or placeholder) ---------- */
+.photo { position: relative; display: block; overflow: hidden; border-radius: 4px; background: var(--wood); }
+.photo img { width: 100%; height: 100%; object-fit: cover; }
+.photo__ph {
+  position: absolute; inset: 0; display: none; flex-direction: column; align-items: center; justify-content: center; gap: 6px;
+  padding: 20px; text-align: center; color: var(--taupe-deep);
+  background: repeating-linear-gradient(135deg, transparent 0 14px, rgba(255,253,249,.35) 14px 15px);
+}
+.photo__ph b { font: 400 1.35rem/1.2 var(--serif); color: var(--ink); max-width: 18ch; }
+.photo__ph small { font-size: .7rem; letter-spacing: .2em; text-transform: uppercase; }
+.photo.is-empty img { visibility: hidden; }
+.photo.is-empty .photo__ph { display: flex; }
+
+/* ---------- Gallery ---------- */
+.gallery { background: var(--paper); }
+.gallery__strip {
+  display: flex; gap: 12px; overflow-x: auto; scroll-snap-type: x mandatory;
+  margin: 24px calc(var(--gutter) * -1) 0; padding: 0 var(--gutter) 6px; max-width: none;
+  scrollbar-width: none;
+}
+.gallery__strip::-webkit-scrollbar { display: none; }
+.gallery__strip .photo {
+  flex: none; width: 74vw; max-width: 340px; aspect-ratio: 3/4; padding: 0; border: 0;
+  scroll-snap-align: center; cursor: zoom-in; font: inherit;
+}
+.gallery__strip .photo.is-empty { cursor: default; }
+.lightbox { border: 0; padding: 0; background: transparent; max-width: 94vw; max-height: 92vh; }
+.lightbox::backdrop { background: rgba(40,32,26,.88); }
+.lightbox img { max-width: 94vw; max-height: 92vh; border-radius: 4px; }
+.lightbox__x {
+  position: fixed; top: 14px; right: 14px; width: 48px; height: 48px; border-radius: 50%;
+  border: 0; background: var(--cream); color: var(--ink); font-size: 1.6rem; line-height: 1; cursor: pointer;
+}
 
 /* ---------- Service menu ---------- */
 .tabs {
@@ -233,6 +269,11 @@ address { font-style: normal; font-size: 1.15rem; line-height: 1.5; }
   .tabs { top: 64px; padding-left: max(var(--gutter), calc((100vw - 1080px) / 2)); padding-right: max(var(--gutter), calc((100vw - 1080px) / 2)); }
   .cat { scroll-margin-top: 136px; }
   .items { grid-template-columns: 1fr 1fr; gap: 12px; }
+  .story { grid-template-columns: 1.1fr .9fr; column-gap: 64px; align-items: center; max-width: none; }
+  .story > * { max-width: none; }
+  .story { padding-left: max(var(--gutter), calc((100vw - 1080px) / 2)); padding-right: max(var(--gutter), calc((100vw - 1080px) / 2)); }
+  .gallery__strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; overflow: visible; margin: 32px auto 0; padding: 0; max-width: 1080px; }
+  .gallery__strip .photo { width: auto; max-width: none; }
   .themes { grid-template-columns: 1fr 1fr; column-gap: 64px; }
   .quote { padding: 48px; }
   .quote p { font-size: 2.6rem; }

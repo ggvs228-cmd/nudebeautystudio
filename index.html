@@ -108,6 +108,7 @@
       <p data-i18n="story.p1"></p>
       <p data-i18n="story.p2"></p>
     </div>
+    <figure class="story__img photo" data-photo="estudio"></figure>
   </section>
 
   <section class="menu" id="servicios">
@@ -116,6 +117,12 @@
     <p class="lede" data-i18n="menu.hint"></p>
     <nav class="tabs" id="tabs" aria-label="Categorías"></nav>
     <div class="cats" id="cats"></div>
+  </section>
+
+  <section class="gallery" id="galeria">
+    <p class="eyebrow" data-i18n="gal.kicker"></p>
+    <h2 data-i18n="gal.title"></h2>
+    <div class="gallery__strip" id="gallery"></div>
   </section>
 
   <section class="reviews" id="resenas">
@@ -189,6 +196,11 @@
     <svg class="ic" aria-hidden="true"><use href="#ic-wa"/></svg><span id="dock-label"></span>
   </a>
 </div>
+
+<dialog class="lightbox" id="lightbox">
+  <button type="button" class="lightbox__x" aria-label="Cerrar">×</button>
+  <img alt="">
+</dialog>
 
 <script src="js/site.js"></script>
 </body>

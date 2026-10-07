@@ -3,6 +3,28 @@
   const LANGS = ['es', 'ca', 'en'];
 
   /* ------------------------------------------------------------------
+     Photos. Drop a file at the given path and it replaces the placeholder;
+     see images/README.md. Gallery order: most-booked work first, the space last.
+  ------------------------------------------------------------------ */
+  const PHOTOS = {
+    estudio: { src: 'images/00-estudio.jpg',
+      alt: { es: 'Tocador junto al ventanal del estudio', ca: 'Tocador al costat del finestral de l\'estudi', en: 'Vanity by the studio window' } },
+    manicura: { src: 'images/01-manicura.jpg',
+      alt: { es: 'Manicura semipermanente terminada', ca: 'Manicura semipermanent acabada', en: 'Finished gel manicure' } },
+    'unas-diseno': { src: 'images/02-unas-diseno.jpg',
+      alt: { es: 'Diseño de uñas', ca: 'Disseny d\'ungles', en: 'Nail design' } },
+    cejas: { src: 'images/03-cejas.jpg',
+      alt: { es: 'Cejas tras el diseño y perfilado', ca: 'Celles després del disseny i perfilat', en: 'Brows after shaping' } },
+    pestanas: { src: 'images/04-pestanas.jpg',
+      alt: { es: 'Lifting de pestañas terminado', ca: 'Lifting de pestanyes acabat', en: 'Finished lash lift' } },
+    cabina: { src: 'images/05-cabina.jpg',
+      alt: { es: 'Cabina de tratamientos faciales y corporales', ca: 'Cabina de tractaments facials i corporals', en: 'Facial and body treatment room' } },
+    rincon: { src: 'images/06-rincon.jpg',
+      alt: { es: 'Rincón del estudio con estantes de madera y plantas', ca: 'Racó de l\'estudi amb prestatges de fusta i plantes', en: 'Studio corner with wood shelves and plants' } },
+  };
+  const GALLERY = ['manicura', 'unas-diseno', 'cejas', 'pestanas', 'cabina', 'rincon'];
+
+  /* ------------------------------------------------------------------
      Service menu. p = price in €, from = "desde", ask = price on request.
   ------------------------------------------------------------------ */
   const HIDRALIPS = { id: 'hidralips', p: 30,
@@ -110,6 +132,7 @@
       'story.p1': 'No busques un rótulo en la calle: es la puerta 6 de la quinta planta. Llamas, subes y entras a tu hora.',
       'story.p2': 'Dentro, paredes blancas, madera clara y plantas. El tocador de maquillaje está junto a un ventanal que da a una fachada modernista.',
       'menu.kicker': 'Servicios', 'menu.title': 'La carta, con precios.',
+      'gal.kicker': 'Galería', 'gal.title': 'El trabajo y el estudio.', 'gal.soon': 'Foto próximamente',
       'menu.hint': 'Marca lo que te interese y envíanos la selección por WhatsApp. Te respondemos con día y hora.',
       'rev.kicker': 'Reseñas', 'rev.title': 'Lo que cuentan quienes ya han subido.',
       'rev.source': '106 reseñas en Google Maps, todas de cinco estrellas · octubre de 2026',
@@ -144,6 +167,8 @@
       'story.p1': 'No busquis cap rètol al carrer: és la porta 6 de la cinquena planta. Truques, puges i entres a la teva hora.',
       'story.p2': 'A dins, parets blanques, fusta clara i plantes. El tocador de maquillatge és al costat d\'un finestral que dona a una façana modernista.',
       'menu.kicker': 'Serveis', 'menu.title': 'La carta, amb preus.',
+      'gal.kicker': 'Galería', 'gal.title': 'El trabajo y el estudio.', 'gal.soon': 'Foto próximamente',
+      'gal.kicker': 'Galeria', 'gal.title': 'La feina i l\'estudi.', 'gal.soon': 'Foto properament',
       'menu.hint': 'Marca el que t\'interessi i envia\'ns la selecció per WhatsApp. Et responem amb dia i hora.',
       'rev.kicker': 'Ressenyes', 'rev.title': 'El que expliquen les que ja han pujat.',
       'rev.source': '106 ressenyes a Google Maps, totes de cinc estrelles · octubre de 2026',
@@ -178,6 +203,8 @@
       'story.p1': 'Don\'t look for a sign on the street: it\'s door 6 on the fifth floor. Ring, come up and walk in at your time.',
       'story.p2': 'Inside: white walls, light wood and plants. The make-up vanity sits by a full-height window facing a modernista façade.',
       'menu.kicker': 'Services', 'menu.title': 'The menu, with prices.',
+      'gal.kicker': 'Galería', 'gal.title': 'El trabajo y el estudio.', 'gal.soon': 'Foto próximamente',
+      'gal.kicker': 'Gallery', 'gal.title': 'The work and the studio.', 'gal.soon': 'Photo coming soon',
       'menu.hint': 'Tick what you\'re interested in and send us the selection on WhatsApp. We\'ll reply with a day and time.',
       'rev.kicker': 'Reviews', 'rev.title': 'What people say once they\'ve been up.',
       'rev.source': '106 reviews on Google Maps, every one five stars · October 2026',
@@ -312,6 +339,27 @@
     syncDock();
   }
 
+  // Each slot shows its photo once the file exists, and a labelled placeholder until then
+  const photoSlot = k => `<img src="${PHOTOS[k].src}" alt=""><span class="photo__ph"><b></b><small></small></span>`;
+  function buildPhotos() {
+    $('#gallery').innerHTML = GALLERY.map(k => `<button type="button" class="photo" data-photo="${k}">${photoSlot(k)}</button>`).join('');
+    $$('figure.photo').forEach(f => { f.innerHTML = photoSlot(f.dataset.photo); });
+    $$('.photo').forEach(el => {
+      const img = $('img', el);
+      const empty = () => { el.classList.add('is-empty'); if (el.tagName === 'BUTTON') el.disabled = true; };
+      img.addEventListener('error', empty);
+      if (img.complete && !img.naturalWidth) empty();
+    });
+  }
+  function renderPhotos() {
+    $$('.photo').forEach(el => {
+      const p = PHOTOS[el.dataset.photo];
+      $('img', el).alt = p.alt[lang];
+      $('.photo__ph b', el).textContent = p.alt[lang];
+      $('.photo__ph small', el).textContent = t('gal.soon');
+    });
+  }
+
   function setLang(l) {
     lang = l;
     store.set('nude-lang', l);
@@ -319,7 +367,7 @@
     $$('[data-i18n]').forEach(el => { el.textContent = t(el.dataset.i18n); });
     $$('.lang button').forEach(b => b.setAttribute('aria-pressed', b.dataset.lang === l));
     $('.score__n').textContent = l === 'en' ? '5.0' : '5,0';
-    renderMenu(); renderDock(); renderOpen();
+    renderMenu(); renderDock(); renderOpen(); renderPhotos();
   }
 
   /* ---------- events ---------- */
@@ -340,7 +388,19 @@
     renderDock();
   });
 
+  const lightbox = $('#lightbox');
+  $('#gallery').addEventListener('click', e => {
+    const b = e.target.closest('.photo:not(.is-empty)');
+    if (!b) return;
+    const img = $('img', lightbox);
+    img.src = PHOTOS[b.dataset.photo].src;
+    img.alt = PHOTOS[b.dataset.photo].alt[lang];
+    lightbox.showModal();
+  });
+  lightbox.addEventListener('click', e => { if (e.target.tagName !== 'IMG') lightbox.close(); });
+
   $('#year').textContent = new Date().getFullYear();
+  buildPhotos();
   setLang(lang);
   const ctaWatch = new IntersectionObserver(entries => {
     entries.forEach(e => (e.isIntersecting ? ctasInView.add(e.target) : ctasInView.delete(e.target)));
