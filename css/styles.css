@@ -31,7 +31,7 @@ a { color: inherit; }
 h1, h2, h3, h4, p { margin: 0; }
 h1, h2 { font-family: var(--serif); font-weight: 400; line-height: 1.08; text-wrap: balance; }
 h2 { font-size: clamp(2rem, 8vw, 3.2rem); margin-bottom: 18px; }
-section { padding: 72px var(--gutter); }
+section { padding: 56px var(--gutter); }
 section > * { max-width: 1080px; margin-left: auto; margin-right: auto; }
 
 .eyebrow {
@@ -76,7 +76,7 @@ section > * { max-width: 1080px; margin-left: auto; margin-right: auto; }
 .bar__nav a:hover { text-decoration: underline; text-underline-offset: 5px; }
 .lang { display: flex; border: 1px solid var(--line); border-radius: 999px; padding: 3px; background: var(--paper); }
 .lang button {
-  min-width: 40px; height: 34px; border: 0; border-radius: 999px; background: none;
+  min-width: 44px; height: 38px; border: 0; border-radius: 999px; background: none;
   font: 500 .78rem var(--sans); letter-spacing: .08em; color: var(--muted); cursor: pointer;
 }
 .lang button[aria-pressed="true"] { background: var(--ink); color: var(--cream); }
@@ -104,6 +104,9 @@ section > * { max-width: 1080px; margin-left: auto; margin-right: auto; }
 .hero__cta { display: flex; flex-direction: column; gap: 12px; width: 100%; max-width: 340px; margin-top: 28px; }
 .hero__meta { margin-top: 24px; font-size: .92rem; color: var(--ink); display: flex; flex-wrap: wrap; gap: 4px 8px; justify-content: center; }
 .hero__meta .stars, .hero__meta .is-open, .hero__meta .is-closed { color: #fff; }
+/* Phones: opening status on its own line instead of a dangling separator */
+.hero__meta .dot { display: none; }
+.hero__meta .js-open { flex-basis: 100%; }
 .hero__foot { margin-top: 36px; font-size: .72rem; letter-spacing: .22em; text-transform: uppercase; line-height: 1.7; }
 
 /* ---------- Story ---------- */
@@ -150,13 +153,13 @@ section > * { max-width: 1080px; margin-left: auto; margin-right: auto; }
 /* ---------- Service menu ---------- */
 .tabs {
   display: flex; gap: 8px; overflow-x: auto; scrollbar-width: none;
-  margin: 28px calc(var(--gutter) * -1) 0; padding: 10px var(--gutter);
+  margin: 24px calc(var(--gutter) * -1) 0; padding: 8px var(--gutter);
   position: sticky; top: 56px; z-index: 10; background: var(--cream);
   max-width: none;
 }
 .tabs::-webkit-scrollbar { display: none; }
 .tabs a {
-  flex: none; display: inline-flex; align-items: center; min-height: 44px; padding: 0 18px; border-radius: 999px;
+  flex: none; display: inline-flex; align-items: center; min-height: 44px; padding: 0 16px; border-radius: 999px;
   border: 1px solid var(--taupe); background: var(--paper); color: var(--ink);
   font: 500 .95rem var(--sans); text-decoration: none; white-space: nowrap;
   box-shadow: 0 1px 2px rgba(51,41,31,.08);
@@ -167,13 +170,13 @@ section > * { max-width: 1080px; margin-left: auto; margin-right: auto; }
 /* Clears the sticky top bar plus the sticky chip row when jumping to a category */
 .cat { scroll-margin-top: 128px; }
 .cats { margin-top: 20px; }
-.cat + .cat { margin-top: 40px; }
+.cat + .cat { margin-top: 32px; }
 .cat__title { font: 400 1.75rem/1.15 var(--serif); padding-bottom: 10px; border-bottom: 1px solid var(--line); }
-.items { list-style: none; padding: 0; margin-top: 14px; margin-bottom: 0; display: grid; gap: 10px; }
+.items { list-style: none; padding: 0; margin-top: 12px; margin-bottom: 0; display: grid; gap: 8px; }
 .item { display: flex; }
 .item__btn {
   width: 100%; display: grid; grid-template-columns: 28px 1fr auto; gap: 4px 14px; align-items: start; align-content: start;
-  padding: 18px 16px; text-align: left; cursor: pointer;
+  padding: 14px 14px; text-align: left; cursor: pointer;
   background: var(--paper); border: 1px solid var(--line); border-radius: 16px;
   font: inherit; color: inherit;
   transition: background .2s, border-color .2s, box-shadow .2s;
@@ -201,7 +204,7 @@ section > * { max-width: 1080px; margin-left: auto; margin-right: auto; }
 }
 
 /* ---------- Reviews ---------- */
-.score { display: flex; align-items: center; gap: 16px; margin-top: 8px; margin-bottom: 36px; }
+.score { display: flex; align-items: center; gap: 16px; margin-top: 8px; margin-bottom: 28px; }
 .score__n { font: 300 4.2rem/1 var(--sans); color: var(--taupe-deep); }
 .score__s { display: grid; gap: 2px; font-size: .9rem; color: var(--muted); }
 .score__s .stars { font-size: 1.15rem; }
@@ -215,7 +218,7 @@ section > * { max-width: 1080px; margin-left: auto; margin-right: auto; }
 .quote footer { margin-top: 10px; font-size: .85rem; color: var(--ink); letter-spacing: .04em; }
 
 /* ---------- Visit ---------- */
-.visit { background: var(--paper); display: grid; gap: 32px; }
+.visit { background: var(--cream); display: grid; gap: 32px; }
 .visit > * { width: 100%; }
 address { font-style: normal; font-size: 1.15rem; line-height: 1.5; }
 .visit__tip { color: var(--muted); margin-top: 12px; max-width: 46ch; }
@@ -229,7 +232,7 @@ address { font-style: normal; font-size: 1.15rem; line-height: 1.5; }
 .hours td:last-child { text-align: right; font-variant-numeric: tabular-nums; }
 .hours tr.today td { font-weight: 500; }
 .hours tr.today td:first-child::after { content: " •"; color: var(--green); }
-.visit__map iframe { width: 100%; height: 340px; border: 0; border-radius: 4px; filter: grayscale(.35) sepia(.12); background: var(--wood); }
+.visit__map iframe { width: 100%; height: 260px; border: 0; border-radius: 4px; filter: grayscale(.35) sepia(.12); background: var(--wood); }
 
 /* ---------- Closing + footer ---------- */
 .closing { background: var(--taupe); color: #fff; text-align: center; }
@@ -237,6 +240,7 @@ address { font-style: normal; font-size: 1.15rem; line-height: 1.5; }
 .foot { background: var(--ink); color: #D8CCC0; text-align: center; padding: 48px var(--gutter) 40px; font-size: .92rem; }
 .foot__logo { display: block; width: 150px; margin: 0 auto 22px; color: var(--cream); }
 .foot p + p { margin-top: 6px; }
+.foot p a { display: inline-block; padding: 11px 4px; }
 .foot__small { font-size: .78rem; letter-spacing: .08em; opacity: .7; margin-top: 18px !important; }
 
 /* ---------- Sticky booking dock ---------- */
@@ -266,6 +270,8 @@ address { font-style: normal; font-size: 1.15rem; line-height: 1.5; }
   .bar__nav { display: flex; }
   .hero { min-height: calc(100svh - 64px); }
   .hero__cta { flex-direction: row; max-width: none; width: auto; }
+  .hero__meta .dot { display: inline; }
+  .hero__meta .js-open { flex-basis: auto; }
   .tabs { top: 64px; padding-left: max(var(--gutter), calc((100vw - 1080px) / 2)); padding-right: max(var(--gutter), calc((100vw - 1080px) / 2)); }
   .cat { scroll-margin-top: 136px; }
   .items { grid-template-columns: 1fr 1fr; gap: 12px; }
