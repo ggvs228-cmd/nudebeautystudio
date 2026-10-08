@@ -242,6 +242,7 @@ address { font-style: normal; font-size: 1.15rem; line-height: 1.5; }
 .foot p + p { margin-top: 6px; }
 .foot p a { display: inline-block; padding: 11px 4px; }
 .foot__small { font-size: .78rem; letter-spacing: .08em; opacity: .7; margin-top: 18px !important; }
+.foot__credit { margin-top: 0 !important; }
 
 /* ---------- Sticky booking dock ---------- */
 .dock {
