@@ -3,23 +3,23 @@
   const LANGS = ['es', 'ca', 'en'];
 
   /* ------------------------------------------------------------------
-     Photos of the studio. To swap one, replace the file in /images (3:4 portrait;
+     Photos of the studio. To swap one, replace the file in /img (WebP, 3:4 portrait;
      the reception photo is 4:5). A missing file falls back to a labelled placeholder.
   ------------------------------------------------------------------ */
   const PHOTOS = {
-    recepcion: { src: 'images/00-recepcion.jpg',
+    recepcion: { src: 'img/00-recepcion.webp',
       alt: { es: 'Recepción con el nombre Nude Beauty Studio en el mostrador', ca: 'Recepció amb el nom Nude Beauty Studio al taulell', en: 'Reception desk with the Nude Beauty Studio name on it' } },
-    manicura: { src: 'images/01-manicura.jpg',
+    manicura: { src: 'img/01-manicura.webp',
       alt: { es: 'Mesa de manicura junto al ventanal', ca: 'Taula de manicura al costat del finestral', en: 'Manicure desk by the window' } },
-    tocador: { src: 'images/02-tocador.jpg',
+    tocador: { src: 'img/02-tocador.webp',
       alt: { es: 'Tocador de maquillaje con espejo iluminado', ca: 'Tocador de maquillatge amb mirall il·luminat', en: 'Make-up vanity with lit mirror' } },
-    cabina: { src: 'images/03-cabina.jpg',
+    cabina: { src: 'img/03-cabina.webp',
       alt: { es: 'Cabina de tratamientos faciales', ca: 'Cabina de tractaments facials', en: 'Facial treatment room' } },
-    presoterapia: { src: 'images/04-presoterapia.jpg',
+    presoterapia: { src: 'img/04-presoterapia.webp',
       alt: { es: 'Cabina de presoterapia', ca: 'Cabina de pressoteràpia', en: 'Pressotherapy room' } },
-    espera: { src: 'images/05-espera.jpg',
+    espera: { src: 'img/05-espera.webp',
       alt: { es: 'Zona de espera con sillones verdes', ca: 'Zona d\'espera amb butaques verdes', en: 'Waiting area with green armchairs' } },
-    pasillo: { src: 'images/06-pasillo.jpg',
+    pasillo: { src: 'img/06-pasillo.webp',
       alt: { es: 'Pasillo de entrada con el logotipo en la pared', ca: 'Passadís d\'entrada amb el logotip a la paret', en: 'Entrance corridor with the logo on the wall' } },
   };
   const GALLERY = ['manicura', 'tocador', 'cabina', 'presoterapia', 'espera', 'pasillo'];
@@ -145,7 +145,8 @@
       'visit.kicker': 'Cómo llegar', 'visit.title': 'Junto a Rambla de Catalunya.',
       'visit.floor': '5º piso, puerta 6',
       'visit.tip': 'Metro Passeig de Gràcia (L2, L3, L4), a unos 5 minutos a pie.',
-      'visit.route': 'Abrir en Google Maps', 'visit.hours': 'Horario',
+      'visit.route': 'Abrir en Google Maps', 'visit.mapcta': 'Ver en Google Maps',
+      'foot.legal': 'Aviso legal', 'foot.privacy': 'Privacidad', 'visit.hours': 'Horario',
       'end.title': '¿Te guardamos hora?', 'end.sub': 'Dinos qué quieres hacerte y qué días te van bien.',
       days: ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'],
       closed: 'Cerrado', openNow: 'Abierto ahora', closesAt: 'cierra a las', closedNow: 'Cerrado ahora', opensAt: 'abre', today: 'hoy a las',
@@ -180,7 +181,8 @@
       'visit.kicker': 'Com arribar', 'visit.title': 'Al costat de la Rambla de Catalunya.',
       'visit.floor': '5è pis, porta 6',
       'visit.tip': 'Metro Passeig de Gràcia (L2, L3, L4), a uns 5 minuts a peu.',
-      'visit.route': 'Obrir a Google Maps', 'visit.hours': 'Horari',
+      'visit.route': 'Obrir a Google Maps', 'visit.mapcta': 'Veure a Google Maps',
+      'foot.legal': 'Avís legal', 'foot.privacy': 'Privacitat', 'visit.hours': 'Horari',
       'end.title': 'Et guardem hora?', 'end.sub': 'Digue\'ns què et vols fer i quins dies et van bé.',
       days: ['Diumenge', 'Dilluns', 'Dimarts', 'Dimecres', 'Dijous', 'Divendres', 'Dissabte'],
       closed: 'Tancat', openNow: 'Obert ara', closesAt: 'tanca a les', closedNow: 'Tancat ara', opensAt: 'obre', today: 'avui a les',
@@ -215,7 +217,8 @@
       'visit.kicker': 'Find us', 'visit.title': 'Next to Rambla de Catalunya.',
       'visit.floor': '5th floor, door 6',
       'visit.tip': 'Metro Passeig de Gràcia (L2, L3, L4), about 5 minutes on foot.',
-      'visit.route': 'Open in Google Maps', 'visit.hours': 'Opening hours',
+      'visit.route': 'Open in Google Maps', 'visit.mapcta': 'View on Google Maps',
+      'foot.legal': 'Legal notice', 'foot.privacy': 'Privacy', 'visit.hours': 'Opening hours',
       'end.title': 'Shall we save you a slot?', 'end.sub': 'Tell us what you\'d like done and which days suit you.',
       days: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
       closed: 'Closed', openNow: 'Open now', closesAt: 'closes at', closedNow: 'Closed now', opensAt: 'opens', today: 'today at',
@@ -358,9 +361,10 @@
     });
   }
 
-  function setLang(l) {
+  // The choice is only written to the browser when the visitor picks a language themselves
+  function setLang(l, remember) {
     lang = l;
-    store.set('nude-lang', l);
+    if (remember) store.set('nude-lang', l);
     document.documentElement.lang = l;
     $$('[data-i18n]').forEach(el => { el.textContent = t(el.dataset.i18n); });
     $$('.lang button').forEach(b => b.setAttribute('aria-pressed', b.dataset.lang === l));
@@ -371,7 +375,7 @@
   /* ---------- events ---------- */
   $('.lang').addEventListener('click', e => {
     const b = e.target.closest('button[data-lang]');
-    if (b) setLang(b.dataset.lang);
+    if (b) setLang(b.dataset.lang, true);
   });
   let chipFrame = 0;
   addEventListener('scroll', () => {

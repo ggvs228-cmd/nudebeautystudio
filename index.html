@@ -9,16 +9,16 @@
 <meta property="og:title" content="Nude Beauty Studio · Barcelona">
 <meta property="og:description" content="Belleza sin escaparate. Un quinto piso en Diputació 238. Reserva por WhatsApp.">
 <meta property="og:type" content="website">
+<meta property="og:url" content="https://DOMINIO_PENDIENTE/">
+<link rel="canonical" href="https://DOMINIO_PENDIENTE/">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23A99685'/%3E%3Ctext x='32' y='44' font-family='Georgia,serif' font-size='36' text-anchor='middle' fill='%23fff'%3EN%3C/text%3E%3C/svg%3E">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Italiana&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/styles.css">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "BeautySalon",
   "name": "Nude Beauty Studio",
+  "url": "https://DOMINIO_PENDIENTE/",
   "telephone": "+34675161314",
   "priceRange": "€€",
   "address": {
@@ -41,7 +41,7 @@
 <body>
 
 <!-- Logo redrawn as vector; reused everywhere via <use> -->
-<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+<svg class="sprite" aria-hidden="true">
   <symbol id="nude-logo" viewBox="0 0 1127 420">
     <!-- N -->
     <path d="M0,0 H52 C120,80 185,170 225,240 V0 H244 V315 C165,235 85,125 38,40 L35,315 H27 L5,8 Z"/>
@@ -87,7 +87,7 @@
     <p class="hero__sub" data-i18n="hero.sub"></p>
     <p class="badge" data-i18n="cta.appt"></p>
     <div class="hero__cta">
-      <a class="btn btn--wa js-wa" href="https://wa.me/34675161314" target="_blank" rel="noopener">
+      <a class="btn btn--wa js-wa" href="https://wa.me/34675161314" target="_blank" rel="noopener noreferrer">
         <svg class="ic" aria-hidden="true"><use href="#ic-wa"/></svg><span data-i18n="cta.book"></span>
       </a>
       <a class="btn btn--ghost" href="#servicios" data-i18n="cta.menu"></a>
@@ -133,7 +133,7 @@
       <p>«¡Un 10 en todos los sentidos!»</p>
       <footer>Bruna F. · Google</footer>
     </blockquote>
-    <a class="btn btn--line" href="https://maps.app.goo.gl/gT3hE2o65boG1eyQA" target="_blank" rel="noopener" data-i18n="rev.cta"></a>
+    <a class="btn btn--line" href="https://maps.app.goo.gl/gT3hE2o65boG1eyQA" target="_blank" rel="noopener noreferrer" data-i18n="rev.cta"></a>
   </section>
 
   <section class="story" id="estudio">
@@ -157,24 +157,25 @@
       </address>
       <p class="visit__tip" data-i18n="visit.tip"></p>
       <div class="visit__links">
-        <a class="btn btn--line" href="https://maps.app.goo.gl/gT3hE2o65boG1eyQA" target="_blank" rel="noopener" data-i18n="visit.route"></a>
+        <a class="btn btn--line" href="https://maps.app.goo.gl/gT3hE2o65boG1eyQA" target="_blank" rel="noopener noreferrer" data-i18n="visit.route"></a>
         <a class="btn btn--line" href="tel:+34675161314">675 16 13 14</a>
       </div>
       <h3 data-i18n="visit.hours"></h3>
       <p class="js-open visit__open"></p>
       <table class="hours" id="hours"></table>
     </div>
-    <div class="visit__map">
-      <iframe title="Google Maps · Nude Beauty Studio" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
-        src="https://www.google.com/maps?q=Nude+beauty+studio,+Carrer+de+la+Diputaci%C3%B3+238,+Barcelona&z=16&output=embed"></iframe>
-    </div>
+    <a class="visit__map map" href="https://maps.app.goo.gl/gT3hE2o65boG1eyQA" target="_blank" rel="noopener noreferrer">
+      <img src="img/mapa.webp" width="876" height="583" loading="lazy" alt="Mapa: Nude Beauty Studio, Carrer de la Diputació 238, junto a Rambla de Catalunya">
+      <span class="map__cta" data-i18n="visit.mapcta"></span>
+      <small class="map__credit">Map data © Google</small>
+    </a>
   </section>
 
   <section class="closing">
     <h2 data-i18n="end.title"></h2>
     <p data-i18n="end.sub"></p>
     <p class="badge" data-i18n="cta.appt"></p>
-    <a class="btn btn--wa js-wa" href="https://wa.me/34675161314" target="_blank" rel="noopener">
+    <a class="btn btn--wa js-wa" href="https://wa.me/34675161314" target="_blank" rel="noopener noreferrer">
       <svg class="ic" aria-hidden="true"><use href="#ic-wa"/></svg><span data-i18n="cta.book"></span>
     </a>
   </section>
@@ -185,15 +186,16 @@
     <svg viewBox="0 0 1127 420" role="img" aria-hidden="true"><use href="#nude-logo"/></svg>
   </a>
   <p>Carrer de la Diputació, 238 · 5º 6ª · 08007 Barcelona</p>
-  <p><a href="tel:+34675161314">675 16 13 14</a> · <a class="js-wa" href="https://wa.me/34675161314" target="_blank" rel="noopener">WhatsApp</a></p>
+  <p><a href="tel:+34675161314">675 16 13 14</a> · <a class="js-wa" href="https://wa.me/34675161314" target="_blank" rel="noopener noreferrer">WhatsApp</a></p>
+  <p class="foot__legal"><a href="aviso-legal.html" data-i18n="foot.legal"></a> · <a href="privacidad.html" data-i18n="foot.privacy"></a></p>
   <p class="foot__small">© <span id="year"></span> Nude Beauty Studio · Barcelona · Estd 2025</p>
-  <p class="foot__small foot__credit"><a href="https://webdesignbcn.vercel.app" target="_blank" rel="noopener">Web Design Barcelona</a></p>
+  <p class="foot__small foot__credit"><a href="https://webdesignbcn.vercel.app" target="_blank" rel="noopener noreferrer">Web Design Barcelona</a></p>
 </footer>
 
 <!-- Sticky booking bar (mobile-first) -->
 <div class="dock" id="dock">
   <div class="dock__sum" id="dock-sum"></div>
-  <a class="btn btn--wa js-wa" href="https://wa.me/34675161314" target="_blank" rel="noopener">
+  <a class="btn btn--wa js-wa" href="https://wa.me/34675161314" target="_blank" rel="noopener noreferrer">
     <svg class="ic" aria-hidden="true"><use href="#ic-wa"/></svg><span id="dock-label"></span>
   </a>
 </div>

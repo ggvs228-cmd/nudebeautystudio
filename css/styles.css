@@ -1,5 +1,9 @@
 /* Palette taken from the logo card and the studio interior:
    taupe (logo), cream + white (walls, counter), light wood (shelves), plant green (accent). */
+/* Fonts are served from this site, so no visitor data goes to a font host */
+@font-face { font-family: "Italiana"; src: url("../fonts/italiana-400.woff2") format("woff2"); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: "Jost"; src: url("../fonts/jost-variable.woff2") format("woff2"); font-weight: 300 500; font-style: normal; font-display: swap; }
+
 :root {
   --taupe: #A99685;
   --taupe-deep: #8B7969;
@@ -27,6 +31,7 @@ body {
   padding-bottom: calc(var(--dock-h) + env(safe-area-inset-bottom));
 }
 img { display: block; max-width: 100%; }
+.sprite { position: absolute; width: 0; height: 0; }
 a { color: inherit; }
 h1, h2, h3, h4, p { margin: 0; }
 h1, h2 { font-family: var(--serif); font-weight: 400; line-height: 1.08; text-wrap: balance; }
@@ -232,7 +237,15 @@ address { font-style: normal; font-size: 1.15rem; line-height: 1.5; }
 .hours td:last-child { text-align: right; font-variant-numeric: tabular-nums; }
 .hours tr.today td { font-weight: 500; }
 .hours tr.today td:first-child::after { content: " •"; color: var(--green); }
-.visit__map iframe { width: 100%; height: 260px; border: 0; border-radius: 4px; filter: grayscale(.35) sepia(.12); background: var(--wood); }
+/* Static map image: nothing loads from a map provider until the visitor taps through */
+.map { position: relative; display: block; overflow: hidden; border-radius: 4px; background: var(--wood); color: var(--ink); }
+.map img { width: 100%; height: auto; filter: saturate(.8) sepia(.08); }
+.map__cta {
+  position: absolute; left: 12px; bottom: 12px; padding: 9px 14px; border-radius: 999px; background: var(--paper);
+  font-size: .74rem; font-weight: 500; letter-spacing: .12em; text-transform: uppercase; box-shadow: 0 2px 8px rgba(51,41,31,.18);
+}
+.map:hover .map__cta { background: var(--ink); color: var(--cream); }
+.map__credit { position: absolute; right: 0; bottom: 0; padding: 1px 6px; background: rgba(255,253,249,.8); font-size: .62rem; }
 
 /* ---------- Closing + footer ---------- */
 .closing { background: var(--taupe); color: #fff; text-align: center; }
@@ -243,6 +256,29 @@ address { font-style: normal; font-size: 1.15rem; line-height: 1.5; }
 .foot p a { display: inline-block; padding: 11px 4px; }
 .foot__small { font-size: .78rem; letter-spacing: .08em; opacity: .7; margin-top: 18px !important; }
 .foot__credit { margin-top: 0 !important; }
+.foot__legal { font-size: .85rem; }
+
+/* ---------- Legal pages and 404 ---------- */
+body.plain { padding-bottom: 0; }
+/* One block per language lives in the page; only the active one shows */
+html[lang="es"] [data-l]:not([data-l="es"]),
+html[lang="ca"] [data-l]:not([data-l="ca"]),
+html[lang="en"] [data-l]:not([data-l="en"]) { display: none; }
+.legal { background: var(--paper); }
+.legal article { max-width: 68ch; }
+.legal h1 { font-size: clamp(2.2rem, 9vw, 3.4rem); margin-bottom: 10px; }
+.legal h2 { font-size: 1.6rem; margin: 36px 0 10px; }
+.legal p + p { margin-top: 12px; }
+.legal ul { margin: 10px 0 0; padding-left: 22px; }
+.legal li + li { margin-top: 6px; }
+.legal dl { margin: 0; display: grid; grid-template-columns: auto 1fr; gap: 6px 16px; }
+.legal dt { color: var(--muted); }
+.legal dd { margin: 0; overflow-wrap: anywhere; }
+.legal__meta { color: var(--muted); font-size: .9rem; }
+.legal__back { display: inline-block; margin-top: 40px; padding: 11px 0; }
+.lost { text-align: center; min-height: 60svh; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+.lost h1 { font-size: clamp(2.2rem, 9vw, 3.4rem); margin-bottom: 14px; }
+.lost p { color: var(--muted); margin: 0 auto 28px; max-width: 34ch; }
 
 /* ---------- Sticky booking dock ---------- */
 .dock {
@@ -286,7 +322,7 @@ address { font-style: normal; font-size: 1.15rem; line-height: 1.5; }
   .quote p { font-size: 2.6rem; }
   .visit { grid-template-columns: 1fr 1fr; column-gap: 64px; padding-left: max(var(--gutter), calc((100vw - 1080px) / 2)); padding-right: max(var(--gutter), calc((100vw - 1080px) / 2)); }
   .visit > * { max-width: none; }
-  .visit__map iframe { height: 100%; min-height: 480px; }
+  .map { align-self: start; }
   /* On desktop the dock only appears once something is selected */
   .dock { left: auto; right: 24px; bottom: 24px; border: 1px solid var(--line); border-radius: 999px; padding: 8px 8px 8px 24px; box-shadow: 0 10px 30px rgba(51,41,31,.14); }
   .dock:has(.dock__sum:empty) { display: none; }
