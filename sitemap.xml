@@ -1,6 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://nudebeautybcn.com/</loc></url>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://nudebeautybcn.com/</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://nudebeautybcn.com/"/>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://nudebeautybcn.com/ca/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://nudebeautybcn.com/en/"/>
+  </url>
+  <url>
+    <loc>https://nudebeautybcn.com/ca/</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://nudebeautybcn.com/"/>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://nudebeautybcn.com/ca/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://nudebeautybcn.com/en/"/>
+  </url>
+  <url>
+    <loc>https://nudebeautybcn.com/en/</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://nudebeautybcn.com/"/>
+    <xhtml:link rel="alternate" hreflang="ca" href="https://nudebeautybcn.com/ca/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://nudebeautybcn.com/en/"/>
+  </url>
   <url><loc>https://nudebeautybcn.com/aviso-legal</loc></url>
   <url><loc>https://nudebeautybcn.com/privacidad</loc></url>
 </urlset>

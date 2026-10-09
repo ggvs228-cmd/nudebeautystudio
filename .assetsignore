@@ -5,3 +5,5 @@
 images
 wrangler.jsonc
 .wrangler
+src
+tools

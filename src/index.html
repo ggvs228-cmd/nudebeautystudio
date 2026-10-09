@@ -1,0 +1,195 @@
+<!doctype html>
+<!-- Build template. The published pages (/, /ca/, /en/) are generated from this file by: node tools/build.js -->
+<html lang="{{lang}}">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+{{head}}
+<meta name="theme-color" content="#A99685">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23A99685'/%3E%3Ctext x='32' y='44' font-family='Georgia,serif' font-size='36' text-anchor='middle' fill='%23fff'%3EN%3C/text%3E%3C/svg%3E">
+<link rel="preload" href="/fonts/jost-variable.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/italiana-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+
+<!-- Logo redrawn as vector; reused everywhere via <use> -->
+<svg class="sprite" aria-hidden="true">
+  <symbol id="nude-logo" viewBox="0 0 1127 420">
+    <!-- N -->
+    <path d="M0,0 H52 C120,80 185,170 225,240 V0 H244 V315 C165,235 85,125 38,40 L35,315 H27 L5,8 Z"/>
+    <!-- U -->
+    <path d="M297,0 H342 V205 C342,262 368,293 410,293 C452,293 485,262 497,215 V0 H522 V315 H497 V262 C478,297 444,319 398,319 C335,319 297,280 297,210 Z"/>
+    <!-- D -->
+    <path fill-rule="evenodd" d="M562,0 H675 C770,0 827,62 827,157 C827,253 770,315 675,315 H562 Z M612,13 V302 H670 C738,302 775,245 775,157 C775,70 738,13 670,13 Z"/>
+    <!-- E -->
+    <path d="M1117,72 C1090,25 1050,0 1002,0 C915,0 852,65 852,157 C852,250 915,315 1005,315 C1058,315 1100,292 1127,250 L1118,244 C1092,280 1058,300 1015,300 C948,300 905,245 905,157 C905,70 945,14 1005,14 C1048,14 1082,38 1106,78 Z"/>
+    <path d="M900,160 C930,120 975,112 1010,128 C1040,142 1055,145 1072,120 C1068,160 1040,172 1005,155 C970,138 935,140 905,175 Z"/>
+    <text y="417" font-family="Jost, 'Century Gothic', sans-serif" font-weight="300" font-size="60"
+          x="0 107 207 317 415 505 602 697 800 907 1012 1072">BEAUTYSTUDIO</text>
+  </symbol>
+  <symbol id="ic-wa" viewBox="0 0 24 24">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+  </symbol>
+</svg>
+
+<header class="bar" id="top">
+  <a class="bar__logo" href="#top" aria-label="Nude Beauty Studio">
+    <svg viewBox="0 0 1127 420" role="img" aria-hidden="true"><use href="#nude-logo"/></svg>
+  </a>
+  <nav class="bar__nav" aria-label="{{t:nav.label}}">
+    <a href="#servicios" data-i18n="nav.services"></a>
+    <a href="#resenas" data-i18n="nav.reviews"></a>
+    <a href="#estudio" data-i18n="nav.studio"></a>
+    <a href="#visita" data-i18n="nav.visit"></a>
+  </nav>
+{{langswitch}}
+</header>
+
+<main>
+  <section class="hero">
+    <p class="eyebrow" data-i18n="hero.kicker"></p>
+    <a class="hero__logo" href="#servicios" aria-label="Nude Beauty Studio">
+      <svg viewBox="0 0 1127 420" role="img" aria-hidden="true"><use href="#nude-logo"/></svg>
+    </a>
+    <h1 data-i18n="hero.title"></h1>
+    <p class="hero__sub" data-i18n="hero.sub"></p>
+    <p class="badge" data-i18n="cta.appt"></p>
+    <div class="hero__cta">
+      <a class="btn btn--wa js-wa" href="https://wa.me/34675161314" target="_blank" rel="noopener noreferrer">
+        <svg class="ic" aria-hidden="true"><use href="#ic-wa"/></svg><span data-i18n="cta.book"></span>
+      </a>
+      <a class="btn btn--ghost" href="#servicios" data-i18n="cta.menu"></a>
+    </div>
+    <p class="hero__meta">
+      <span class="stars" aria-hidden="true">★★★★★</span>
+      <span data-i18n="hero.rating"></span>
+      <span class="dot" aria-hidden="true">·</span>
+      <span class="js-open"></span>
+    </p>
+    <p class="hero__foot">Barcelona<br>Estd 2025</p>
+  </section>
+
+  <section class="menu" id="servicios">
+    <p class="eyebrow" data-i18n="menu.kicker"></p>
+    <h2 data-i18n="menu.title"></h2>
+    <p class="lede" data-i18n="menu.hint"></p>
+    <nav class="tabs" id="tabs" aria-label="{{t:tabs.label}}">{{tabs}}</nav>
+    <div class="cats" id="cats">{{cats}}</div>
+  </section>
+
+  <section class="gallery" id="galeria">
+    <p class="eyebrow" data-i18n="gal.kicker"></p>
+    <h2 data-i18n="gal.title"></h2>
+    <div class="gallery__strip" id="gallery">{{gallery}}</div>
+  </section>
+
+  <section class="reviews" id="resenas">
+    <p class="eyebrow" data-i18n="rev.kicker"></p>
+    <h2 data-i18n="rev.title"></h2>
+    <div class="score">
+      <span class="score__n" data-i18n="rev.score"></span>
+      <span class="score__s"><span class="stars" aria-hidden="true">★★★★★</span><span data-i18n="rev.source"></span></span>
+    </div>
+    <h3 class="reviews__sub" data-i18n="rev.sub"></h3>
+    <ul class="themes">
+      <li><h4 data-i18n="rev.1.t"></h4><p data-i18n="rev.1.d"></p></li>
+      <li><h4 data-i18n="rev.5.t"></h4><p data-i18n="rev.5.d"></p></li>
+      <li><h4 data-i18n="rev.6.t"></h4><p data-i18n="rev.6.d"></p></li>
+      <li><h4 data-i18n="rev.2.t"></h4><p data-i18n="rev.2.d"></p></li>
+      <li><h4 data-i18n="rev.3.t"></h4><p data-i18n="rev.3.d"></p></li>
+      <li><h4 data-i18n="rev.4.t"></h4><p data-i18n="rev.4.d"></p></li>
+    </ul>
+    <div class="quotes">
+      <blockquote class="quote">
+        <p>«¡Un 10 en todos los sentidos!»</p>
+        <footer>Bruna F. · <span data-i18n="rev.q1"></span> · Google</footer>
+      </blockquote>
+      <blockquote class="quote">
+        <p>«Súper natural, bonito y muy buen trato.»</p>
+        <footer>Deborah M. · <span data-i18n="rev.q2"></span> · Google</footer>
+      </blockquote>
+    </div>
+    <a class="btn btn--line" href="https://maps.app.goo.gl/gT3hE2o65boG1eyQA" target="_blank" rel="noopener noreferrer" data-i18n="rev.cta"></a>
+  </section>
+
+  <section class="story" id="estudio">
+    <div class="story__text">
+      <p class="eyebrow" data-i18n="story.kicker"></p>
+      <h2 data-i18n="story.title"></h2>
+      <p data-i18n="story.p1"></p>
+      <p data-i18n="story.p2"></p>
+    </div>
+    <figure class="story__img photo">{{photo:recepcion}}</figure>
+  </section>
+
+  <section class="visit" id="visita">
+    <div class="visit__info">
+      <p class="eyebrow" data-i18n="visit.kicker"></p>
+      <h2 data-i18n="visit.title"></h2>
+      <address>
+        Carrer de la Diputació, 238<br>
+        <span data-i18n="visit.floor"></span><br>
+        08007 Barcelona
+      </address>
+      <p class="visit__tip" data-i18n="visit.tip"></p>
+      <div class="visit__links">
+        <a class="btn btn--line" href="https://maps.app.goo.gl/gT3hE2o65boG1eyQA" target="_blank" rel="noopener noreferrer" data-i18n="visit.route"></a>
+        <a class="btn btn--line" href="tel:+34675161314">675 16 13 14</a>
+        <a class="btn btn--line js-wa" href="https://wa.me/34675161314" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+      </div>
+      <h3 data-i18n="visit.hours"></h3>
+      <p class="js-open visit__open"></p>
+      <table class="hours" id="hours">{{hours}}</table>
+    </div>
+    <a class="visit__map map" href="https://maps.app.goo.gl/gT3hE2o65boG1eyQA" target="_blank" rel="noopener noreferrer">
+      {{photo:mapa}}
+      <span class="map__cta" data-i18n="visit.mapcta"></span>
+      <small class="map__credit">Map data © Google</small>
+    </a>
+  </section>
+
+  <section class="faq" id="faq">
+    <p class="eyebrow" data-i18n="faq.kicker"></p>
+    <h2 data-i18n="faq.title"></h2>
+    <div class="faq__list">{{faq}}</div>
+  </section>
+
+  <section class="closing">
+    <h2 data-i18n="end.title"></h2>
+    <p data-i18n="end.sub"></p>
+    <p class="badge" data-i18n="cta.appt"></p>
+    <a class="btn btn--wa js-wa" href="https://wa.me/34675161314" target="_blank" rel="noopener noreferrer">
+      <svg class="ic" aria-hidden="true"><use href="#ic-wa"/></svg><span data-i18n="cta.book"></span>
+    </a>
+  </section>
+</main>
+
+<footer class="foot">
+  <a class="foot__logo" href="#top" aria-label="Nude Beauty Studio">
+    <svg viewBox="0 0 1127 420" role="img" aria-hidden="true"><use href="#nude-logo"/></svg>
+  </a>
+  <p>Carrer de la Diputació, 238 · 5º 6ª · 08007 Barcelona</p>
+  <p><a href="tel:+34675161314">675 16 13 14</a> · <a class="js-wa" href="https://wa.me/34675161314" target="_blank" rel="noopener noreferrer">WhatsApp</a></p>
+  <p class="foot__legal"><a href="{{legal}}" data-i18n="foot.legal"></a> · <a href="{{privacy}}" data-i18n="foot.privacy"></a></p>
+  <p class="foot__small">© <span id="year"></span> Nude Beauty Studio · Barcelona · Estd 2025</p>
+  <p class="foot__small foot__credit"><a href="https://webdesignbcn.vercel.app" target="_blank" rel="noopener noreferrer">Web Design Barcelona</a></p>
+</footer>
+
+<!-- Sticky booking bar (mobile-first) -->
+<div class="dock" id="dock">
+  <div class="dock__sum" id="dock-sum"></div>
+  <a class="btn btn--wa js-wa" href="https://wa.me/34675161314" target="_blank" rel="noopener noreferrer">
+    <svg class="ic" aria-hidden="true"><use href="#ic-wa"/></svg><span id="dock-label"></span>
+  </a>
+</div>
+
+<dialog class="lightbox" id="lightbox">
+  <button type="button" class="lightbox__x" aria-label="{{t:close}}">×</button>
+  <img alt="">
+</dialog>
+
+<script src="/js/content.js" defer></script>
+<script src="/js/site.js" defer></script>
+</body>
+</html>
