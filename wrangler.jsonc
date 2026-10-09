@@ -1,0 +1,9 @@
+{
+  // Cloudflare deploys the repository as a static site: no build step, no server code.
+  "name": "nudebeautystudio",
+  "compatibility_date": "2026-10-01",
+  "assets": {
+    "directory": "./",
+    "not_found_handling": "404-page"
+  }
+}
