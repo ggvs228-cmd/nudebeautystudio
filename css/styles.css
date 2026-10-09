@@ -45,7 +45,6 @@ section > * { max-width: 1080px; margin-left: auto; margin-right: auto; }
 }
 /* Left-aligned with the 1080px content column rather than centred in it */
 .lede { color: var(--muted); max-width: 46ch; margin-left: max(0px, (100% - 1080px) / 2); }
-.note { color: var(--muted); font-size: .85rem; margin-top: 14px; }
 .stars { color: #C9A25A; letter-spacing: .08em; }
 
 /* ---------- Buttons ---------- */
