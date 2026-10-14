@@ -328,7 +328,9 @@ const NUDE = (() => {
     { q: { es: '¿Hacéis maquillaje de novia a domicilio?', ca: 'Feu maquillatge de núvia a domicili?', en: 'Do you do bridal make-up at home or on location?' },
       a: null },
     { q: { es: '¿Qué formas de pago aceptáis?', ca: 'Quines formes de pagament accepteu?', en: 'Which payment methods do you accept?' },
-      a: null },
+      a: { es: 'Efectivo, tarjeta de débito y de crédito (Visa y Mastercard) y pago con el móvil sin contacto. No aceptamos cheques.',
+           ca: 'Efectiu, targeta de dèbit i de crèdit (Visa i Mastercard) i pagament amb el mòbil sense contacte. No acceptem xecs.',
+           en: 'Cash, debit and credit cards (Visa and Mastercard) and contactless mobile payments. We do not accept cheques.' } },
   ];
 
   return { WA, LANGS, PHOTOS, GALLERY, MENU, T, HOURS, SEO, FAQ };

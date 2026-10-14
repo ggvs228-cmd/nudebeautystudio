@@ -10,7 +10,7 @@ const { LANGS, PHOTOS, GALLERY, MENU, T, HOURS, SEO, FAQ } = require(path.join(R
 
 const ORIGIN = 'https://nudebeautybcn.com';
 const MAPS = 'https://maps.app.goo.gl/gT3hE2o65boG1eyQA';
-const INSTAGRAM = '';   // profile URL; added to the structured data once known
+const INSTAGRAM = 'https://www.instagram.com/nude.beautybcn';
 const home = l => (l === 'es' ? '/' : `/${l}/`);
 const legalUrl = (page, l) => `/${page}` + (l === 'es' ? '' : `?lang=${l}`);
 
@@ -36,6 +36,7 @@ function salon(l) {
     url: ORIGIN + home(l),
     telephone: '+34675161314',
     priceRange: '€€',
+    paymentAccepted: 'Cash, Credit Card, Debit Card, Visa, Mastercard, NFC mobile payments',
     image: ORIGIN + PHOTOS.recepcion.src,
     address: {
       '@type': 'PostalAddress',
