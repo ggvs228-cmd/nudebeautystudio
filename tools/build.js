@@ -94,6 +94,7 @@ function head(l) {
     `<meta property="og:url" content="${url}">`,
     `<meta property="og:locale" content="${{ es: 'es_ES', ca: 'ca_ES', en: 'en_GB' }[l]}">`,
     ld(salon(l)),
+    l === 'es' ? ld({ '@context': 'https://schema.org', '@type': 'WebSite', name: 'Nude Beauty Studio', alternateName: 'Nude Beauty BCN', url: ORIGIN + '/' }) : '',
     answered.length ? ld(faq) : '',
   ].filter(Boolean).join('\n');
 }
@@ -154,8 +155,6 @@ const alternates = LANGS.map(x => `    <xhtml:link rel="alternate" hreflang="${x
 fs.writeFileSync(path.join(ROOT, 'sitemap.xml'), `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
 ${LANGS.map(l => `  <url>\n    <loc>${ORIGIN + home(l)}</loc>\n${alternates}\n  </url>`).join('\n')}
-  <url><loc>${ORIGIN}/aviso-legal</loc></url>
-  <url><loc>${ORIGIN}/privacidad</loc></url>
 </urlset>
 `);
 console.log('built sitemap.xml');
