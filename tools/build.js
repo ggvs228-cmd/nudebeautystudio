@@ -11,6 +11,7 @@ const { LANGS, PHOTOS, GALLERY, MENU, T, HOURS, SEO, FAQ } = require(path.join(R
 const ORIGIN = 'https://nudebeautybcn.com';
 const MAPS = 'https://maps.app.goo.gl/gT3hE2o65boG1eyQA';
 const INSTAGRAM = 'https://www.instagram.com/nude.beautybcn';
+const TREATWELL = 'https://www.treatwell.es/establecimiento/nude-beauty-studio/';
 const home = l => (l === 'es' ? '/' : `/${l}/`);
 const legalUrl = (page, l) => `/${page}` + (l === 'es' ? '' : `?lang=${l}`);
 
@@ -46,13 +47,13 @@ function salon(l) {
       postalCode: '08007',
       addressCountry: 'ES',
     },
-    geo: { '@type': 'GeoCoordinates', latitude: 41.3885, longitude: 2.16472 },
+    geo: { '@type': 'GeoCoordinates', latitude: 41.3885, longitude: 2.1647 },
     hasMap: MAPS,
     openingHoursSpecification: [
       { '@type': 'OpeningHoursSpecification', dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'], opens: '10:00', closes: '20:00' },
-      { '@type': 'OpeningHoursSpecification', dayOfWeek: 'Saturday', opens: '10:00', closes: '18:00' },
+      { '@type': 'OpeningHoursSpecification', dayOfWeek: 'Saturday', opens: '10:00', closes: '14:00' },
     ],
-    sameAs: [MAPS, INSTAGRAM].filter(Boolean),
+    sameAs: [INSTAGRAM, MAPS, TREATWELL],
     hasOfferCatalog: {
       '@type': 'OfferCatalog',
       name: T[l]['menu.kicker'],

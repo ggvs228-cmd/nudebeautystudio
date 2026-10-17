@@ -32,7 +32,7 @@ const NUDE = (() => {
   ------------------------------------------------------------------ */
   const HIDRALIPS = { id: 'hidralips', p: 30,
     n: { es: 'Hidralips', ca: 'Hidralips', en: 'Hidralips' },
-    d: { es: 'Hidratación de labios con ácido hialurónico.', ca: 'Hidratació de llavis amb àcid hialurònic.', en: 'Lip hydration with hyaluronic acid.' } };
+    d: { es: 'Tratamiento hidratante de labios con ácido hialurónico, de aplicación tópica.', ca: 'Tractament hidratant de llavis amb àcid hialurònic, d’aplicació tòpica.', en: 'Hydrating lip treatment with hyaluronic acid, applied topically.' } };
 
   const MENU = [
     { id: 'faciales',
@@ -174,7 +174,7 @@ const NUDE = (() => {
       'hero.kicker': 'Eixample · Barcelona',
       'hero.title': 'Belleza sin escaparate.',
       'hero.sub': 'Estudio de estética en un quinto piso de Diputació 238. Uñas, cejas, pestañas, faciales y tratamientos corporales.',
-      'hero.rating': '5,0 en Google · 106 reseñas',
+      'hero.rating': '5,0 · +100 reseñas en Google',
       'cta.book': 'Reservar por WhatsApp', 'cta.menu': 'Ver servicios y precios', 'cta.appt': 'Solo con cita previa',
       'story.kicker': 'Al llegar',
       'story.title': 'Llamas al timbre y subes.',
@@ -184,7 +184,7 @@ const NUDE = (() => {
       'gal.kicker': 'Galería', 'gal.title': 'El estudio, por dentro.', 'gal.soon': 'Foto próximamente',
       'menu.hint': 'Marca lo que te interese y envíanos la selección por WhatsApp. Te respondemos con día y hora.',
       'rev.kicker': 'Reseñas', 'rev.title': 'Lo que cuentan quienes ya han subido.',
-      'rev.source': '106 reseñas en Google Maps, todas de cinco estrellas · octubre de 2026',
+      'rev.source': '+100 reseñas en Google',
       'rev.sub': 'Lo que más se repite',
       'rev.1.t': 'El detalle', 'rev.1.d': 'Uñas trabajadas al milímetro y diseños entendidos a la primera.',
       'rev.5.t': 'Las pestañas', 'rev.5.d': 'El lifting es el servicio más comentado: 14 reseñas. La palabra que más se repite es «natural».',
@@ -214,7 +214,7 @@ const NUDE = (() => {
       'hero.kicker': 'Eixample · Barcelona',
       'hero.title': 'Bellesa sense aparador.',
       'hero.sub': 'Estudi d\'estètica en un cinquè pis de Diputació 238. Ungles, celles, pestanyes, facials i tractaments corporals.',
-      'hero.rating': '5,0 a Google · 106 ressenyes',
+      'hero.rating': '5,0 · +100 ressenyes a Google',
       'cta.book': 'Reservar per WhatsApp', 'cta.menu': 'Veure serveis i preus', 'cta.appt': 'Només amb cita prèvia',
       'story.kicker': 'En arribar',
       'story.title': 'Truques al timbre i puges.',
@@ -224,7 +224,7 @@ const NUDE = (() => {
       'gal.kicker': 'Galeria', 'gal.title': 'L\'estudi, per dins.', 'gal.soon': 'Foto properament',
       'menu.hint': 'Marca el que t\'interessi i envia\'ns la selecció per WhatsApp. Et responem amb dia i hora.',
       'rev.kicker': 'Ressenyes', 'rev.title': 'El que expliquen les que ja han pujat.',
-      'rev.source': '106 ressenyes a Google Maps, totes de cinc estrelles · octubre de 2026',
+      'rev.source': '+100 ressenyes a Google',
       'rev.sub': 'El que més es repeteix',
       'rev.1.t': 'El detall', 'rev.1.d': 'Ungles treballades al mil·límetre i dissenys entesos a la primera.',
       'rev.5.t': 'Les pestanyes', 'rev.5.d': 'El lifting és el servei més comentat: 14 ressenyes. La paraula que més es repeteix és «natural».',
@@ -254,7 +254,7 @@ const NUDE = (() => {
       'hero.kicker': 'Eixample · Barcelona',
       'hero.title': 'Beauty without a shop window.',
       'hero.sub': 'A beauty studio on the fifth floor of Diputació 238. Nails, brows, lashes, facials and body treatments.',
-      'hero.rating': '5.0 on Google · 106 reviews',
+      'hero.rating': '5.0 · 100+ Google reviews',
       'cta.book': 'Book on WhatsApp', 'cta.menu': 'See services & prices', 'cta.appt': 'By appointment only',
       'story.kicker': 'When you arrive',
       'story.title': 'Ring the bell and come up.',
@@ -264,7 +264,7 @@ const NUDE = (() => {
       'gal.kicker': 'Gallery', 'gal.title': 'Inside the studio.', 'gal.soon': 'Photo coming soon',
       'menu.hint': 'Tick what you\'re interested in and send us the selection on WhatsApp. We\'ll reply with a day and time.',
       'rev.kicker': 'Reviews', 'rev.title': 'What people say once they\'ve been up.',
-      'rev.source': '106 reviews on Google Maps, every one five stars · October 2026',
+      'rev.source': '100+ Google reviews',
       'rev.sub': 'What comes up most',
       'rev.1.t': 'The detail', 'rev.1.d': 'Nails done to the millimetre, and designs understood first time.',
       'rev.5.t': 'The lashes', 'rev.5.d': 'The lash lift is the most talked-about service: 14 reviews. The word that comes up most is “natural”.',
@@ -291,7 +291,7 @@ const NUDE = (() => {
   };
 
   // Opening hours in minutes from midnight, index 0 = Sunday
-  const HOURS = [null, [600, 1200], [600, 1200], [600, 1200], [600, 1200], [600, 1200], [600, 1080]];
+  const HOURS = [null, [600, 1200], [600, 1200], [600, 1200], [600, 1200], [600, 1200], [600, 840]];
 
   /* ------------------------------------------------------------------
      Page title and description per language (search results and link previews).
