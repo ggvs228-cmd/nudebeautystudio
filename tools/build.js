@@ -50,7 +50,7 @@ function salon(l) {
     geo: { '@type': 'GeoCoordinates', latitude: 41.3885, longitude: 2.1647 },
     hasMap: MAPS,
     openingHoursSpecification: [
-      { '@type': 'OpeningHoursSpecification', dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'], opens: '10:00', closes: '20:00' },
+      { '@type': 'OpeningHoursSpecification', dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'], opens: '10:00', closes: '19:00' },
       { '@type': 'OpeningHoursSpecification', dayOfWeek: 'Saturday', opens: '10:00', closes: '14:00' },
     ],
     sameAs: [INSTAGRAM, MAPS, TREATWELL],

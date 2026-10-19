@@ -11,7 +11,7 @@ const NUDE = (() => {
     recepcion: { src: '/img/00-recepcion.webp', w: 960, h: 1200,
       alt: { es: 'Recepción de Nude Beauty Studio, centro de estética en el Eixample de Barcelona', ca: 'Recepció de Nude Beauty Studio, centre d\'estètica a l\'Eixample de Barcelona', en: 'Reception at Nude Beauty Studio, a beauty salon in Eixample, Barcelona' } },
     manicura: { src: '/img/01-manicura.webp', w: 535, h: 713,
-      alt: { es: 'Mesa de manicura junto al ventanal en Nude Beauty Studio, Barcelona', ca: 'Taula de manicura al costat del finestral a Nude Beauty Studio, Barcelona', en: 'Manicure desk by the window at Nude Beauty Studio, Barcelona' } },
+      alt: { es: 'Rincón junto al ventanal en Nude Beauty Studio, Barcelona', ca: 'Racó al costat del finestral a Nude Beauty Studio, Barcelona', en: 'Corner by the window at Nude Beauty Studio, Barcelona' } },
     tocador: { src: '/img/02-tocador.webp', w: 960, h: 1280,
       alt: { es: 'Tocador de maquillaje con espejo iluminado en Nude Beauty Studio', ca: 'Tocador de maquillatge amb mirall il·luminat a Nude Beauty Studio', en: 'Make-up vanity with lit mirror at Nude Beauty Studio' } },
     cabina: { src: '/img/03-cabina.webp', w: 881, h: 1175,
@@ -153,17 +153,6 @@ const NUDE = (() => {
         { id: 'vacum-4', p: 196,
           n: { es: '4 sesiones de vacumterapia con radiofrecuencia', ca: '4 sessions de vacumteràpia amb radiofreqüència', en: '4 vacuum therapy with radiofrequency sessions' } },
       ] },
-    { id: 'manos',
-      n: { es: 'Manos y pies', ca: 'Mans i peus', en: 'Hands & feet' },
-      h: { es: 'Manicura y pedicura en el Eixample', ca: 'Manicura i pedicura a l\'Eixample', en: 'Manicure and pedicure in Eixample' },
-      intro: { es: 'Manicura y pedicura; la pedicura completa incluye esmaltado semipermanente. Las reseñas destacan el trabajo al detalle y los consejos para que el esmalte dure.',
-               ca: 'Manicura i pedicura; la pedicura completa inclou esmaltat semipermanent. Les ressenyes destaquen la feina al detall i els consells perquè l\'esmalt duri.',
-               en: 'Manicure and pedicure; the full pedicure includes gel polish. Reviews highlight the attention to detail and the advice on making the polish last.' },
-      items: [
-        { id: 'mani', p: 25, from: true, n: { es: 'Manicura', ca: 'Manicura', en: 'Manicure' } },
-        { id: 'mani-pedi', p: 50, from: true, n: { es: 'Manicura y pedicura', ca: 'Manicura i pedicura', en: 'Manicure & pedicure' } },
-        { id: 'pedi-semi', p: 40, n: { es: 'Pedicura completa con semipermanente', ca: 'Pedicura completa amb semipermanent', en: 'Full pedicure with gel polish' } },
-      ] },
   ];
 
   /* ------------------------------------------------------------------ */
@@ -173,7 +162,7 @@ const NUDE = (() => {
       'rev.score': '5,0', 'faq.kicker': 'Preguntas frecuentes', 'faq.title': 'Antes de venir.', 'nav.label': 'Principal', 'tabs.label': 'Categorías', 'close': 'Cerrar',
       'hero.kicker': 'Eixample · Barcelona',
       'hero.title': 'Belleza sin escaparate.',
-      'hero.sub': 'Estudio de estética en un quinto piso de Diputació 238. Uñas, cejas, pestañas, faciales y tratamientos corporales.',
+      'hero.sub': 'Estudio de estética en un quinto piso de Diputació 238. Cejas, pestañas, faciales, maquillaje y tratamientos corporales.',
       'hero.rating': '5,0 · +100 reseñas en Google',
       'cta.book': 'Reservar por WhatsApp', 'cta.menu': 'Ver servicios y precios', 'cta.appt': 'Solo con cita previa',
       'story.kicker': 'Al llegar',
@@ -186,12 +175,12 @@ const NUDE = (() => {
       'rev.kicker': 'Reseñas', 'rev.title': 'Lo que cuentan quienes ya han subido.',
       'rev.source': '+100 reseñas en Google',
       'rev.sub': 'Lo que más se repite',
-      'rev.1.t': 'El detalle', 'rev.1.d': 'Uñas trabajadas al milímetro y diseños entendidos a la primera.',
+      'rev.1.t': 'El detalle', 'rev.1.d': 'Trabajo al milímetro, y lo que pides entendido a la primera.',
       'rev.5.t': 'Las pestañas', 'rev.5.d': 'El lifting es el servicio más comentado: 14 reseñas. La palabra que más se repite es «natural».',
       'rev.6.t': 'La piel', 'rev.6.d': 'De las limpiezas faciales se sale con la piel hidratada y luminosa. Hay quien vuelve cada mes.',
-      'rev.q1': 'Manicura', 'rev.q2': 'Lifting de pestañas',
+      'rev.q1': 'Limpieza facial', 'rev.q2': 'Lifting de pestañas',
       'rev.2.t': 'El tiempo', 'rev.2.d': 'Nadie trabaja mirando el reloj.',
-      'rev.3.t': 'Los consejos', 'rev.3.d': 'Sales con indicaciones para que el semipermanente dure.',
+      'rev.3.t': 'Los consejos', 'rev.3.d': 'Te explican cada paso y cómo cuidar el resultado en casa.',
       'rev.4.t': 'Las que repiten', 'rev.4.d': 'Hay quien acaba un bono de presoterapia, compra otro y trae a su tía.',
       'rev.cta': 'Leer las reseñas en Google',
       'visit.kicker': 'Cómo llegar', 'visit.title': 'Junto a Rambla de Catalunya.',
@@ -213,7 +202,7 @@ const NUDE = (() => {
       'rev.score': '5,0', 'faq.kicker': 'Preguntes freqüents', 'faq.title': 'Abans de venir.', 'nav.label': 'Principal', 'tabs.label': 'Categories', 'close': 'Tancar',
       'hero.kicker': 'Eixample · Barcelona',
       'hero.title': 'Bellesa sense aparador.',
-      'hero.sub': 'Estudi d\'estètica en un cinquè pis de Diputació 238. Ungles, celles, pestanyes, facials i tractaments corporals.',
+      'hero.sub': 'Estudi d\'estètica en un cinquè pis de Diputació 238. Celles, pestanyes, facials, maquillatge i tractaments corporals.',
       'hero.rating': '5,0 · +100 ressenyes a Google',
       'cta.book': 'Reservar per WhatsApp', 'cta.menu': 'Veure serveis i preus', 'cta.appt': 'Només amb cita prèvia',
       'story.kicker': 'En arribar',
@@ -226,12 +215,12 @@ const NUDE = (() => {
       'rev.kicker': 'Ressenyes', 'rev.title': 'El que expliquen les que ja han pujat.',
       'rev.source': '+100 ressenyes a Google',
       'rev.sub': 'El que més es repeteix',
-      'rev.1.t': 'El detall', 'rev.1.d': 'Ungles treballades al mil·límetre i dissenys entesos a la primera.',
+      'rev.1.t': 'El detall', 'rev.1.d': 'Feina al mil·límetre, i el que demanes entès a la primera.',
       'rev.5.t': 'Les pestanyes', 'rev.5.d': 'El lifting és el servei més comentat: 14 ressenyes. La paraula que més es repeteix és «natural».',
       'rev.6.t': 'La pell', 'rev.6.d': 'De les neteges facials se\'n surt amb la pell hidratada i lluminosa. Hi ha qui torna cada mes.',
-      'rev.q1': 'Manicura', 'rev.q2': 'Lifting de pestanyes',
+      'rev.q1': 'Neteja facial', 'rev.q2': 'Lifting de pestanyes',
       'rev.2.t': 'El temps', 'rev.2.d': 'Ningú treballa mirant el rellotge.',
-      'rev.3.t': 'Els consells', 'rev.3.d': 'Surts amb indicacions perquè el semipermanent duri.',
+      'rev.3.t': 'Els consells', 'rev.3.d': 'T’expliquen cada pas i com cuidar el resultat a casa.',
       'rev.4.t': 'Les que repeteixen', 'rev.4.d': 'Hi ha qui acaba un abonament de pressoteràpia, en compra un altre i hi porta la tieta.',
       'rev.cta': 'Llegir les ressenyes a Google',
       'visit.kicker': 'Com arribar', 'visit.title': 'Al costat de la Rambla de Catalunya.',
@@ -253,7 +242,7 @@ const NUDE = (() => {
       'rev.score': '5.0', 'faq.kicker': 'Questions', 'faq.title': 'Before you come.', 'nav.label': 'Main', 'tabs.label': 'Categories', 'close': 'Close',
       'hero.kicker': 'Eixample · Barcelona',
       'hero.title': 'Beauty without a shop window.',
-      'hero.sub': 'A beauty studio on the fifth floor of Diputació 238. Nails, brows, lashes, facials and body treatments.',
+      'hero.sub': 'A beauty studio on the fifth floor of Diputació 238. Brows, lashes, facials, make-up and body treatments.',
       'hero.rating': '5.0 · 100+ Google reviews',
       'cta.book': 'Book on WhatsApp', 'cta.menu': 'See services & prices', 'cta.appt': 'By appointment only',
       'story.kicker': 'When you arrive',
@@ -266,12 +255,12 @@ const NUDE = (() => {
       'rev.kicker': 'Reviews', 'rev.title': 'What people say once they\'ve been up.',
       'rev.source': '100+ Google reviews',
       'rev.sub': 'What comes up most',
-      'rev.1.t': 'The detail', 'rev.1.d': 'Nails done to the millimetre, and designs understood first time.',
+      'rev.1.t': 'The detail', 'rev.1.d': 'Work done to the millimetre, and what you ask for understood first time.',
       'rev.5.t': 'The lashes', 'rev.5.d': 'The lash lift is the most talked-about service: 14 reviews. The word that comes up most is “natural”.',
       'rev.6.t': 'The skin', 'rev.6.d': 'People leave a facial with hydrated, glowing skin. Some come back every month.',
-      'rev.q1': 'Manicure', 'rev.q2': 'Lash lift',
+      'rev.q1': 'Facial', 'rev.q2': 'Lash lift',
       'rev.2.t': 'The time', 'rev.2.d': 'Nobody works with one eye on the clock.',
-      'rev.3.t': 'The advice', 'rev.3.d': 'You leave with tips to make your gel polish last.',
+      'rev.3.t': 'The advice', 'rev.3.d': 'Every step is explained, plus how to look after the result at home.',
       'rev.4.t': 'The regulars', 'rev.4.d': 'One client finished a pressotherapy pack, bought another and brought her aunt.',
       'rev.cta': 'Read the reviews on Google',
       'visit.kicker': 'Find us', 'visit.title': 'Next to Rambla de Catalunya.',
@@ -291,18 +280,18 @@ const NUDE = (() => {
   };
 
   // Opening hours in minutes from midnight, index 0 = Sunday
-  const HOURS = [null, [600, 1200], [600, 1200], [600, 1200], [600, 1200], [600, 1200], [600, 840]];
+  const HOURS = [null, [600, 1140], [600, 1140], [600, 1140], [600, 1140], [600, 1140], [600, 840]];
 
   /* ------------------------------------------------------------------
      Page title and description per language (search results and link previews).
   ------------------------------------------------------------------ */
   const SEO = {
     es: { title: 'Nude Beauty Studio · Centro de estética en el Eixample, Barcelona',
-          desc: 'Centro de estética en el Eixample de Barcelona: manicura, cejas, lifting de pestañas, limpieza facial, tratamientos corporales y maquillaje. Solo con cita.' },
+          desc: 'Centro de estética en el Eixample de Barcelona: limpieza facial, cejas, lifting de pestañas, tratamientos corporales y maquillaje de novia. Solo con cita.' },
     ca: { title: 'Nude Beauty Studio · Centre d\'estètica a l\'Eixample, Barcelona',
-          desc: 'Centre d\'estètica a l\'Eixample de Barcelona: manicura, celles, lifting de pestanyes, neteja facial, tractaments corporals i maquillatge. Només amb cita.' },
+          desc: 'Centre d\'estètica a l\'Eixample de Barcelona: neteja facial, celles, lifting de pestanyes, tractaments corporals i maquillatge de núvia. Només amb cita.' },
     en: { title: 'Nude Beauty Studio · Beauty salon in Eixample, Barcelona',
-          desc: 'Beauty salon in Barcelona\'s Eixample: manicure, brows, lash lift, facials, body treatments and make-up. By appointment only, booked on WhatsApp.' },
+          desc: 'Beauty salon in Barcelona\'s Eixample: facials, brows, lash lift, body treatments and bridal make-up. By appointment only, booked on WhatsApp.' },
   };
 
   /* ------------------------------------------------------------------
