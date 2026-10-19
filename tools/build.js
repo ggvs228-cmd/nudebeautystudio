@@ -60,7 +60,9 @@ function salon(l) {
       itemListElement: MENU.map(c => ({
         '@type': 'OfferCatalog',
         name: c.h[l],
-        itemListElement: c.items.filter(i => !i.ask).map(i => ({
+        itemListElement: c.items.filter(i => !i.ask)
+          .flatMap(i => (i.pack ? [i, { ...i, n: { [l]: `${i.n[l]} (${T[l].four})` }, p: i.pack }] : [i]))
+          .map(i => ({
           '@type': 'Offer',
           itemOffered: { '@type': 'Service', name: i.n[l] },
           priceCurrency: 'EUR',
@@ -100,6 +102,12 @@ function head(l) {
   ].filter(Boolean).join('\n');
 }
 
+// Single session or pack of 4, chosen inside the same card
+const opts = (i, l) => `
+            <div class="item__opts" role="group" aria-label="${attr(i.n[l])}">` +
+  `<button type="button" class="item__opt" data-id="${i.id}" data-opt="1" aria-pressed="true">${esc(T[l].one)} · ${esc(euro(i.p, l))}</button>` +
+  `<button type="button" class="item__opt" data-id="${i.id}" data-opt="4" aria-pressed="false">${esc(T[l].four)} · ${esc(euro(i.pack, l))}</button></div>`;
+
 const parts = {
   langswitch: l => `  <div class="lang" role="group" aria-label="Idioma / Language">\n` +
     LANGS.map(x => `    <a href="${home(x)}" hreflang="${x}" lang="${x}"${x === l ? ' aria-current="true"' : ''}>${x.toUpperCase()}</a>`).join('\n') + `\n  </div>`,
@@ -109,12 +117,12 @@ const parts = {
         <h2 class="cat__title">${esc(c.h[l])}</h2>
         <p class="cat__intro">${esc(c.intro[l])}</p>
         <ul class="items">${c.items.map(i => `
-          <li class="item"><button type="button" class="item__btn" data-id="${i.id}" aria-pressed="false">
+          <li class="item${i.pack ? ' item--pack' : ''}"><button type="button" class="item__btn" data-id="${i.id}" aria-pressed="false">
             <span class="item__mark" aria-hidden="true"></span>
             <span class="item__name">${esc(i.n[l])}</span>
             <span class="item__price">${esc(price(i, l))}</span>${i.d ? `
             <span class="item__desc">${esc(i.d[l])}</span>` : ''}
-          </button></li>`).join('')}
+          </button>${i.pack ? opts(i, l) : ''}</li>`).join('')}
         </ul>
       </div>`).join('') + '\n    ',
   gallery: l => GALLERY.map(k => `\n      <button type="button" class="photo" data-photo="${k}">${photo(k, l)}</button>`).join('') + '\n    ',

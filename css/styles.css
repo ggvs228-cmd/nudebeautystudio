@@ -198,6 +198,21 @@ section > * { max-width: 1080px; margin-left: auto; margin-right: auto; }
   transform: translate(-50%, -60%) rotate(45deg);
 }
 
+/* Pack services: the 1 / 4 sessions choice sits inside the same card, under the name */
+.item--pack { flex-direction: column; }
+.item--pack .item__btn { border-bottom: 0; border-bottom-left-radius: 0; border-bottom-right-radius: 0; padding-bottom: 10px; }
+.item__opts {
+  display: flex; flex-wrap: wrap; gap: 6px; padding: 0 14px 14px 56px;
+  background: var(--paper); border: 1px solid var(--line); border-top: 0; border-radius: 0 0 16px 16px;
+}
+.item__opt {
+  flex: 1 1 0; min-height: 40px; padding: 0 8px; border-radius: 999px; cursor: pointer; white-space: nowrap;
+  border: 1px solid var(--line); background: var(--cream); color: var(--ink); font: 500 .8rem var(--sans);
+}
+.item__opt[aria-pressed="true"] { background: var(--taupe-deep); border-color: var(--taupe-deep); color: #fff; }
+.item--pack:has(.item__btn[aria-pressed="true"]) .item__btn,
+.item--pack:has(.item__btn[aria-pressed="true"]) .item__opts { background: #F0E6DA; border-color: var(--taupe); box-shadow: none; }
+
 /* ---------- Reviews ---------- */
 .score { display: flex; align-items: center; gap: 16px; margin-top: 8px; margin-bottom: 28px; }
 .score__n { font: 300 4.2rem/1 var(--sans); color: var(--taupe-deep); }

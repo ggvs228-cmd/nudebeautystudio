@@ -7,11 +7,14 @@
   const $ = (s, r = document) => r.querySelector(s);
   const $$ = (s, r = document) => [...r.querySelectorAll(s)];
   const picked = new Set();
+  const four = new Set();   // services booked as a pack of 4
   const allItems = new Map(MENU.flatMap(c => c.items).map(i => [i.id, i]));
 
   const hhmm = m => String(Math.floor(m / 60)).padStart(2, '0') + ':' + String(m % 60).padStart(2, '0');
   const euro = n => lang === 'en' ? '€' + n : n + ' €';
   const price = i => i.ask ? L.ask : (i.from ? L.from + ' ' : '') + euro(i.p);
+  const cost = i => four.has(i.id) ? i.pack : (i.p || 0);
+  const label = i => four.has(i.id) ? `${i.n[lang]} · ${L.four} (${euro(i.pack)})` : `${i.n[lang]} (${price(i)})`;
 
   function madridNow() {
     const p = Object.fromEntries(new Intl.DateTimeFormat('en-GB', {
@@ -63,10 +66,10 @@
     const sum = $('#dock-sum');
     let msg = L.waHello;
     if (items.length) {
-      const total = items.reduce((s, i) => s + (i.p || 0), 0);
+      const total = items.reduce((s, i) => s + cost(i), 0);
       const approx = items.some(i => i.from || i.ask);
       sum.innerHTML = `${L.selected(items.length)}<b>${approx ? L.from + ' ' : ''}${euro(total)}</b>`;
-      msg = [L.waList, ...items.map(i => `• ${i.n[lang]} (${price(i)})`), L.waEnd].join('\n');
+      msg = [L.waList, ...items.map(i => `• ${label(i)}`), L.waEnd].join('\n');
       $('#dock-label').textContent = L.send;
     } else {
       sum.innerHTML = '';
@@ -85,6 +88,17 @@
   }, { passive: true });
 
   $('#cats').addEventListener('click', e => {
+    const o = e.target.closest('.item__opt');
+    if (o) {
+      const id = o.dataset.id, li = o.closest('.item');
+      o.dataset.opt === '4' ? four.add(id) : four.delete(id);
+      picked.add(id);
+      $$('.item__opt', li).forEach(x => x.setAttribute('aria-pressed', x === o));
+      $('.item__btn', li).setAttribute('aria-pressed', 'true');
+      $('.item__price', li).textContent = euro(cost(allItems.get(id)));
+      renderDock();
+      return;
+    }
     const b = e.target.closest('.item__btn');
     if (!b) return;
     picked.has(b.dataset.id) ? picked.delete(b.dataset.id) : picked.add(b.dataset.id);
