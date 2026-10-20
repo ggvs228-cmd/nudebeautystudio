@@ -6,7 +6,7 @@ const fs = require('fs');
 const path = require('path');
 
 const ROOT = path.join(__dirname, '..');
-const { LANGS, PHOTOS, GALLERY, MENU, T, HOURS, SEO, FAQ } = require(path.join(ROOT, 'js/content.js'));
+const { LANGS, PHOTOS, GALLERY, PROMO, MENU, T, HOURS, SEO, FAQ } = require(path.join(ROOT, 'js/content.js'));
 
 const ORIGIN = 'https://nudebeautybcn.com';
 const MAPS = 'https://maps.app.goo.gl/gT3hE2o65boG1eyQA';
@@ -19,6 +19,7 @@ const esc = s => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(
 const attr = s => esc(s).replace(/"/g, '&quot;');
 const hhmm = m => String(Math.floor(m / 60)).padStart(2, '0') + ':' + String(m % 60).padStart(2, '0');
 const euro = (n, l) => (l === 'en' ? '€' + n : n + ' €');
+const promoOn = Date.now() < Date.parse(PROMO.ends);
 const price = (i, l) => (i.ask ? T[l].ask : (i.from ? T[l].from + ' ' : '') + euro(i.p, l));
 const ld = o => `<script type="application/ld+json">${JSON.stringify(o).replace(/</g, '\\u003c')}</script>`;
 
@@ -60,7 +61,7 @@ function salon(l) {
       itemListElement: MENU.map(c => ({
         '@type': 'OfferCatalog',
         name: c.h[l],
-        itemListElement: c.items.filter(i => !i.ask)
+        itemListElement: (promoOn && c.id === PROMO.cat ? [PROMO, ...c.items] : c.items).filter(i => !i.ask)
           .flatMap(i => (i.pack ? [i, { ...i, n: { [l]: `${i.n[l]} (${T[l].four})` }, p: i.pack }] : [i]))
           .map(i => ({
           '@type': 'Offer',
@@ -69,6 +70,7 @@ function salon(l) {
           ...(i.from
             ? { priceSpecification: { '@type': 'PriceSpecification', minPrice: i.p, priceCurrency: 'EUR' } }
             : { price: i.p }),
+          ...(i.was ? { priceValidUntil: PROMO.ends.slice(0, 10) } : {}),
         })),
       })),
     },
@@ -108,19 +110,39 @@ const opts = (i, l) => `
   `<button type="button" class="item__opt" data-id="${i.id}" data-opt="1" aria-pressed="true">${esc(T[l].one)} · ${esc(euro(i.p, l))}</button>` +
   `<button type="button" class="item__opt" data-id="${i.id}" data-opt="4" aria-pressed="false">${esc(T[l].four)} · ${esc(euro(i.pack, l))}</button></div>`;
 
+// The menu with the running offer added at the top of its category
+const menu = () => MENU.map(c => (promoOn && c.id === PROMO.cat ? { ...c, items: [PROMO, ...c.items] } : c));
+
+// Offer card under the hero: crossed-out price, countdown (filled in by js/site.js), WhatsApp button
+const promoCard = l => !promoOn ? '' : `
+  <section class="promo js-promo" id="oferta" data-ends="${PROMO.ends}">
+    <div class="promo__card">
+      <p class="promo__badge">−${PROMO.off}%</p>
+      <p class="eyebrow">${esc(T[l]['promo.kicker'])}</p>
+      <h2>${esc(PROMO.n[l])}</h2>
+      <p class="promo__desc">${esc(PROMO.d[l])}</p>
+      <p class="promo__price"><s>${esc(euro(PROMO.was, l))}</s> <strong>${esc(euro(PROMO.p, l))}</strong></p>
+      <p class="promo__label">${esc(T[l]['promo.ends'])}</p>
+      <div class="promo__timer" role="timer">${T[l]['promo.units'].map((u, k) =>
+        `<span><b data-u="${k}">00</b><small>${esc(u)}</small></span>`).join('')}</div>
+      <a class="btn btn--wa promo__cta" href="https://wa.me/34675161314?text=${encodeURIComponent(T[l]['promo.wa'])}" target="_blank" rel="noopener noreferrer"><svg class="ic" aria-hidden="true"><use href="#ic-wa"/></svg><span>${esc(T[l]['promo.cta'])}</span></a>
+    </div>
+  </section>
+`;
+
 const parts = {
   langswitch: l => `  <div class="lang" role="group" aria-label="Idioma / Language">\n` +
     LANGS.map(x => `    <a href="${home(x)}" hreflang="${x}" lang="${x}"${x === l ? ' aria-current="true"' : ''}>${x.toUpperCase()}</a>`).join('\n') + `\n  </div>`,
-  tabs: l => MENU.map(c => `<a href="#cat-${c.id}" data-cat="${c.id}">${esc(c.n[l])}<small>${c.items.length}</small></a>`).join(''),
-  cats: l => MENU.map(c => `
+  tabs: l => menu().map(c => `<a href="#cat-${c.id}" data-cat="${c.id}">${esc(c.n[l])}<small>${c.items.length}</small></a>`).join(''),
+  cats: l => menu().map(c => `
       <div class="cat" id="cat-${c.id}">
         <h2 class="cat__title">${esc(c.h[l])}</h2>
         <p class="cat__intro">${esc(c.intro[l])}</p>
         <ul class="items">${c.items.map(i => `
-          <li class="item${i.pack ? ' item--pack' : ''}"><button type="button" class="item__btn" data-id="${i.id}" aria-pressed="false">
+          <li class="item${i.pack ? ' item--pack' : ''}${i.was ? ' item--promo js-promo' : ''}"><button type="button" class="item__btn" data-id="${i.id}" aria-pressed="false">
             <span class="item__mark" aria-hidden="true"></span>
             <span class="item__name">${esc(i.n[l])}</span>
-            <span class="item__price">${esc(price(i, l))}</span>${i.d ? `
+            <span class="item__price">${i.was ? `<s>${esc(euro(i.was, l))}</s> ` : ''}${esc(price(i, l))}</span>${i.d ? `
             <span class="item__desc">${esc(i.d[l])}</span>` : ''}
           </button>${i.pack ? opts(i, l) : ''}</li>`).join('')}
         </ul>
@@ -131,6 +153,7 @@ const parts = {
   faq: l => FAQ.filter(f => f.a).map(f => `
       <details class="faq__item"><summary>${esc(f.q[l])}</summary><p>${esc(f.a[l])}</p></details>`).join('') + '\n    ',
   head,
+  promo: promoCard,
   lang: l => l,
   legal: l => legalUrl('aviso-legal', l),
   privacy: l => legalUrl('privacidad', l),

@@ -213,6 +213,33 @@ section > * { max-width: 1080px; margin-left: auto; margin-right: auto; }
 .item--pack:has(.item__btn[aria-pressed="true"]) .item__btn,
 .item--pack:has(.item__btn[aria-pressed="true"]) .item__opts { background: #F0E6DA; border-color: var(--taupe); box-shadow: none; }
 
+/* ---------- Limited offer ---------- */
+.promo { background: var(--cream); padding-top: 40px; padding-bottom: 8px; }
+.promo__card {
+  position: relative; max-width: 560px; padding: 28px 22px 24px; text-align: center;
+  background: var(--paper); border: 1px solid var(--taupe); border-radius: 20px;
+  box-shadow: 0 12px 32px rgba(51,41,31,.08);
+}
+.promo__badge {
+  position: absolute; top: -14px; left: 50%; transform: translateX(-50%);
+  padding: 6px 14px; border-radius: 999px; background: var(--green); color: #fff;
+  font: 500 .85rem/1 var(--sans); letter-spacing: .06em;
+}
+.promo .eyebrow { margin-top: 6px; margin-bottom: 10px; }
+.promo h2 { margin-bottom: 10px; }
+.promo__desc { color: var(--muted); max-width: 40ch; margin: 0 auto; }
+.promo__price { margin-top: 16px; display: flex; align-items: baseline; justify-content: center; gap: 12px; }
+.promo__price s { color: var(--muted); font-size: 1.25rem; text-decoration-thickness: 1.5px; }
+.promo__price strong { font: 400 3rem/1 var(--serif); color: var(--ink); }
+.promo__label { margin-top: 18px; font-size: .72rem; letter-spacing: .24em; text-transform: uppercase; color: var(--muted); }
+.promo__timer { display: flex; justify-content: center; gap: 8px; margin: 8px 0 22px; }
+.promo__timer span { display: grid; gap: 2px; min-width: 64px; padding: 10px 6px; border-radius: 12px; background: var(--cream); border: 1px solid var(--line); }
+.promo__timer b { font: 400 1.9rem/1 var(--serif); font-variant-numeric: tabular-nums; color: var(--ink); }
+.promo__timer small { font-size: .68rem; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
+.promo__cta { width: 100%; max-width: 340px; }
+.item--promo .item__btn { border-color: var(--taupe); }
+.item__price s { color: var(--muted); font-weight: 400; margin-right: 4px; }
+
 /* ---------- Reviews ---------- */
 .score { display: flex; align-items: center; gap: 16px; margin-top: 8px; margin-bottom: 28px; }
 .score__n { font: 300 4.2rem/1 var(--sans); color: var(--taupe-deep); }
@@ -318,6 +345,8 @@ html[lang="en"] [data-l]:not([data-l="en"]) { display: none; }
 
 /* ---------- Larger screens ---------- */
 @media (min-width: 860px) {
+  .promo { padding-top: 72px; padding-bottom: 16px; }
+  .promo__card { padding: 40px 48px 36px; }
   :root { --gutter: 48px; --dock-h: 0px; }
   body { font-size: 18px; }
   section { padding-top: 112px; padding-bottom: 112px; }

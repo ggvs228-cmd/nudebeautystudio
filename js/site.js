@@ -8,7 +8,7 @@
   const $$ = (s, r = document) => [...r.querySelectorAll(s)];
   const picked = new Set();
   const four = new Set();   // services booked as a pack of 4
-  const allItems = new Map(MENU.flatMap(c => c.items).map(i => [i.id, i]));
+  const allItems = new Map([NUDE.PROMO, ...MENU.flatMap(c => c.items)].map(i => [i.id, i]));
 
   const hhmm = m => String(Math.floor(m / 60)).padStart(2, '0') + ':' + String(m % 60).padStart(2, '0');
   const euro = n => lang === 'en' ? '€' + n : n + ' €';
@@ -117,6 +117,26 @@
     lightbox.showModal();
   });
   lightbox.addEventListener('click', e => { if (e.target.tagName !== 'IMG') lightbox.close(); });
+
+  // Offer countdown; when it reaches zero the offer disappears from the page
+  const promo = $('#oferta');
+  if (promo) {
+    const end = Date.parse(promo.dataset.ends);
+    const tick = () => {
+      let left = Math.max(0, Math.floor((end - Date.now()) / 1000));
+      if (!left) {
+        $$('.js-promo').forEach(el => el.remove());
+        picked.delete(NUDE.PROMO.id); renderDock();
+        return clearInterval(timer);
+      }
+      [86400, 3600, 60, 1].forEach((n, k) => {
+        $(`[data-u="${k}"]`, promo).textContent = String(Math.floor(left / n)).padStart(2, '0');
+        left %= n;
+      });
+    };
+    const timer = setInterval(tick, 1000);
+    tick();
+  }
 
   $('#year').textContent = new Date().getFullYear();
   renderOpen();

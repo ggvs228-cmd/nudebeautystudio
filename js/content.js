@@ -34,6 +34,17 @@ const NUDE = (() => {
     n: { es: 'Hidralips', ca: 'Hidralips', en: 'Hidralips' },
     d: { es: 'Tratamiento hidratante de labios con ácido hialurónico, de aplicación tópica.', ca: 'Tractament hidratant de llavis amb àcid hialurònic, d’aplicació tòpica.', en: 'Hydrating lip treatment with hyaluronic acid, applied topically.' } };
 
+  /* ------------------------------------------------------------------
+     Limited offer. Shown (card under the hero + first item in its category) until `ends`,
+     then it hides itself. was = regular price, p = offer price.
+  ------------------------------------------------------------------ */
+  const PROMO = { id: 'pack-mirada', cat: 'mirada', p: 48, was: 60, off: 20,
+    ends: '2026-10-31T23:59:59+01:00',
+    n: { es: 'Pack mirada perfecta', ca: 'Pack mirada perfecta', en: 'Perfect look pack' },
+    d: { es: 'Lifting de pestañas + tinte + nutrición + diseño y perfilado de cejas con hilo.',
+         ca: 'Lifting de pestanyes + tint + nutrició + disseny i perfilat de celles amb fil.',
+         en: 'Lash lift + tint + nourishing treatment + brow design and threading.' } };
+
   const MENU = [
     { id: 'faciales',
       n: { es: 'Faciales', ca: 'Facials', en: 'Facials' },
@@ -137,6 +148,7 @@ const NUDE = (() => {
   /* ------------------------------------------------------------------ */
   const T = {
     es: {
+      'promo.kicker': 'Oferta hasta el 31 de octubre', 'promo.ends': 'Termina en', 'promo.cta': 'Reservar el pack', 'promo.units': ['días', 'horas', 'min', 'seg'], 'promo.wa': 'Hola, quiero reservar el Pack mirada perfecta (48 €).', 'promo.tag': 'Oferta',
       'nav.services': 'Servicios', 'nav.studio': 'El estudio', 'nav.reviews': 'Reseñas', 'nav.visit': 'Cómo llegar',
       'rev.score': '5,0', 'faq.kicker': 'Preguntas frecuentes', 'faq.title': 'Antes de venir.', 'nav.label': 'Principal', 'tabs.label': 'Categorías', 'close': 'Cerrar',
       'hero.kicker': 'Eixample · Barcelona',
@@ -178,6 +190,7 @@ const NUDE = (() => {
       waList: 'Hola, me gustaría reservar en Nude Beauty Studio:', waEnd: '¿Qué disponibilidad tenéis?',
     },
     ca: {
+      'promo.kicker': 'Oferta fins al 31 d’octubre', 'promo.ends': 'S’acaba en', 'promo.cta': 'Reservar el pack', 'promo.units': ['dies', 'hores', 'min', 'seg'], 'promo.wa': 'Hola, vull reservar el Pack mirada perfecta (48 €).', 'promo.tag': 'Oferta',
       'nav.services': 'Serveis', 'nav.studio': 'L\'estudi', 'nav.reviews': 'Ressenyes', 'nav.visit': 'Com arribar',
       'rev.score': '5,0', 'faq.kicker': 'Preguntes freqüents', 'faq.title': 'Abans de venir.', 'nav.label': 'Principal', 'tabs.label': 'Categories', 'close': 'Tancar',
       'hero.kicker': 'Eixample · Barcelona',
@@ -219,6 +232,7 @@ const NUDE = (() => {
       waList: 'Hola, m\'agradaria reservar a Nude Beauty Studio:', waEnd: 'Quina disponibilitat teniu?',
     },
     en: {
+      'promo.kicker': 'Offer until 31 October', 'promo.ends': 'Ends in', 'promo.cta': 'Book the pack', 'promo.units': ['days', 'hrs', 'min', 'sec'], 'promo.wa': 'Hi, I’d like to book the Perfect look pack (€48).', 'promo.tag': 'Offer',
       'nav.services': 'Services', 'nav.studio': 'The studio', 'nav.reviews': 'Reviews', 'nav.visit': 'Find us',
       'rev.score': '5.0', 'faq.kicker': 'Questions', 'faq.title': 'Before you come.', 'nav.label': 'Main', 'tabs.label': 'Categories', 'close': 'Close',
       'hero.kicker': 'Eixample · Barcelona',
@@ -304,6 +318,6 @@ const NUDE = (() => {
            en: 'Cash, debit and credit cards (Visa and Mastercard) and contactless mobile payments. We do not accept cheques.' } },
   ];
 
-  return { WA, LANGS, PHOTOS, GALLERY, MENU, T, HOURS, SEO, FAQ };
+  return { WA, LANGS, PHOTOS, GALLERY, PROMO, MENU, T, HOURS, SEO, FAQ };
 })();
 if (typeof module !== 'undefined') module.exports = NUDE;
