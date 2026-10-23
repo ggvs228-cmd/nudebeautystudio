@@ -143,6 +143,17 @@ const NUDE = (() => {
         { id: 'vacum', pack: 196, p: 70,
           n: { es: 'Vacumterapia con radiofrecuencia', ca: 'Vacumteràpia amb radiofreqüència', en: 'Vacuum therapy with radiofrequency' } },
       ] },
+    { id: 'manos',
+      n: { es: 'Manos y pies', ca: 'Mans i peus', en: 'Hands & feet' },
+      h: { es: 'Manicura y pedicura en el Eixample', ca: 'Manicura i pedicura a l\'Eixample', en: 'Manicure and pedicure in Eixample' },
+      intro: { es: 'Manicura y pedicura; la pedicura completa incluye esmaltado semipermanente. Las reseñas destacan el trabajo al detalle y los consejos para que el esmalte dure.',
+               ca: 'Manicura i pedicura; la pedicura completa inclou esmaltat semipermanent. Les ressenyes destaquen la feina al detall i els consells perquè l\'esmalt duri.',
+               en: 'Manicure and pedicure; the full pedicure includes gel polish. Reviews highlight the attention to detail and the advice on making the polish last.' },
+      items: [
+        { id: 'mani', p: 25, from: true, n: { es: 'Manicura', ca: 'Manicura', en: 'Manicure' } },
+        { id: 'mani-pedi', p: 50, from: true, n: { es: 'Manicura y pedicura', ca: 'Manicura i pedicura', en: 'Manicure & pedicure' } },
+        { id: 'pedi-semi', p: 40, n: { es: 'Pedicura completa con semipermanente', ca: 'Pedicura completa amb semipermanent', en: 'Full pedicure with gel polish' } },
+      ] },
   ];
 
   /* ------------------------------------------------------------------ */
