@@ -228,8 +228,8 @@ const NUDE = (() => {
       from: 'des de', ask: 'Consultar preu',
       selected: n => n === 1 ? '1 servei' : n + ' serveis',
       send: 'Enviar', book: 'Reservar per WhatsApp',
-      waHello: 'Hola, m\'agradaria reservar a Nude Beauty Studio.',
-      waList: 'Hola, m\'agradaria reservar a Nude Beauty Studio:', waEnd: 'Quina disponibilitat teniu?',
+      waHello: 'Hola, us escric des de la web. M\'agradaria reservar a Nude Beauty Studio.',
+      waList: 'Hola, us escric des de la web. M\'agradaria reservar a Nude Beauty Studio:', waEnd: 'Quina disponibilitat teniu?',
     },
     en: {
       'promo.kicker': 'Offer until 31 October', 'promo.ends': 'Ends in', 'promo.cta': 'Book the pack', 'promo.units': ['days', 'hrs', 'min', 'sec'], 'promo.wa': 'Hi, I’d like to book the Perfect look pack (€48).', 'promo.tag': 'Offer',
@@ -270,8 +270,8 @@ const NUDE = (() => {
       from: 'from', ask: 'Price on request',
       selected: n => n === 1 ? '1 service' : n + ' services',
       send: 'Send', book: 'Book on WhatsApp',
-      waHello: 'Hi, I\'d like to book at Nude Beauty Studio.',
-      waList: 'Hi, I\'d like to book at Nude Beauty Studio:', waEnd: 'What availability do you have?',
+      waHello: 'Hi, I\'m writing from your website. I\'d like to book at Nude Beauty Studio.',
+      waList: 'Hi, I\'m writing from your website. I\'d like to book at Nude Beauty Studio:', waEnd: 'What availability do you have?',
     },
   };
 
