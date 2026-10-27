@@ -186,8 +186,8 @@ const NUDE = (() => {
       from: 'desde', ask: 'Consultar precio',
       selected: n => n === 1 ? '1 servicio' : n + ' servicios',
       send: 'Enviar', book: 'Reservar por WhatsApp',
-      waHello: 'Hola, me gustaría reservar en Nude Beauty Studio.',
-      waList: 'Hola, me gustaría reservar en Nude Beauty Studio:', waEnd: '¿Qué disponibilidad tenéis?',
+      waHello: 'Hola, os escribo desde la web. Me gustaría reservar en Nude Beauty Studio.',
+      waList: 'Hola, os escribo desde la web. Me gustaría reservar en Nude Beauty Studio:', waEnd: '¿Qué disponibilidad tenéis?',
     },
     ca: {
       'promo.kicker': 'Oferta fins al 31 d’octubre', 'promo.ends': 'S’acaba en', 'promo.cta': 'Reservar el pack', 'promo.units': ['dies', 'hores', 'min', 'seg'], 'promo.wa': 'Hola, vull reservar el Pack mirada perfecta (48 €).', 'promo.tag': 'Oferta',
